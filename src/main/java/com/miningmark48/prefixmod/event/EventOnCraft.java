@@ -24,13 +24,14 @@ public class EventOnCraft {
 
             try {
                 if (item instanceof ItemSword) {
-                    WeaponPrefixes.Prefixes prefix = WeaponPrefixes.Prefixes.values()[rand.nextInt(WeaponPrefixes.Prefixes.values().length)];
+                    int r = rand.nextInt(WeaponPrefixes.prefixNameMap.size());
+                    WeaponPrefixes.Prefixes prefix = WeaponPrefixes.prefixNameMap.get(r);
 
                     String prefixName = StringUtils.capitalize(prefix.toString().toLowerCase());
                     stack.setStackDisplayName(prefixName + " " + stack.getDisplayName());
 
-                    for (int i = 0; i <= WeaponPrefixes.modifierMap.get(prefix).length - 1; i++) {
-                        stack.addAttributeModifier(WeaponPrefixes.modifierNameMap.get(prefix)[i], WeaponPrefixes.modifierMap.get(prefix)[i], EntityEquipmentSlot.MAINHAND);
+                    for (int i = 0; i <= WeaponPrefixes.modifierMap.get(r).length - 1; i++) {
+                        stack.addAttributeModifier(WeaponPrefixes.modifierNameMap.get(r)[i], WeaponPrefixes.modifierMap.get(r)[i], EntityEquipmentSlot.MAINHAND);
                     }
 
                     if (stack.getTagCompound() == null) {
