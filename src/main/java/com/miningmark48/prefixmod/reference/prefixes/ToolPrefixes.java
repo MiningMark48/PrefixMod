@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class ToolPrefixes {
 
-    public static HashMap<Integer, ToolPrefixes.Prefixes> prefixNameMap = new HashMap<>();
+    public static HashMap<Integer, Enum> prefixNameMap = new HashMap<>();
     public static HashMap<Integer, AttributeModifier[]> modifierMap = new HashMap<>();
     public static HashMap<Integer, String[]> modifierNameMap = new HashMap<>();
     public static HashMap<ToolPrefixes.Prefixes, TextFormatting> colorMap = new HashMap<>();
