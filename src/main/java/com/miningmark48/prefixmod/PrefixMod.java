@@ -5,6 +5,7 @@ import com.miningmark48.prefixmod.event.EventOnCraft;
 import com.miningmark48.prefixmod.event.EventTooltip;
 import com.miningmark48.prefixmod.proxy.CommonProxy;
 import com.miningmark48.prefixmod.reference.Reference;
+import com.miningmark48.prefixmod.reference.prefixes.ToolPrefixes;
 import com.miningmark48.prefixmod.reference.prefixes.WeaponPrefixes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -30,6 +31,7 @@ public class PrefixMod {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         WeaponPrefixes.init();
+        ToolPrefixes.init();
 
         MinecraftForge.EVENT_BUS.register(new EventOnCraft());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());

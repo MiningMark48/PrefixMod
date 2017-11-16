@@ -16,6 +16,7 @@ public class ToolPrefixes {
         modifierNameMap.clear();
         colorMap.clear();
 
+        addToMaps(ToolPrefixes.Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0)}, new String[]{"generic.attackDamage"});
         addToMaps(ToolPrefixes.Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 1, 0)}, new String[]{"generic.attackSpeed"});
 
     }
@@ -33,6 +34,7 @@ public class ToolPrefixes {
     }
 
     public enum Prefixes {
+        GODLY,
         QUICK
     }
 
