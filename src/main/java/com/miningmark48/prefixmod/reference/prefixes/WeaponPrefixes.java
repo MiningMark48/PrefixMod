@@ -15,18 +15,19 @@ public class WeaponPrefixes {
     public static void init() {
         clearMaps();
 
-        addToMaps(0, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", 5, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.movementSpeed"});
-        addToMaps(1, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 20, 0), new AttributeModifier("generic.attackSpeed", 2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(2, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.15, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
-        addToMaps(3, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(4, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 8, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
-        addToMaps(5, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -7, 0), new AttributeModifier("generic.attackSpeed", 7, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(6, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -5, 0), new AttributeModifier("generic.attackSpeed", 5, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(7, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -3, 0), new AttributeModifier("generic.attackSpeed", 3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(8, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -2, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(9, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -1, 0), new AttributeModifier("generic.attackSpeed", -2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
-        addToMaps(10, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -2, 0), new AttributeModifier("generic.movementSpeed", -0.1, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
-        addToMaps(11, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -3, 0), new AttributeModifier("generic.movementSpeed", -0.05, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
+        int i = 0;
+        addToMaps(i, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", 5, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(i++, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 20, 0), new AttributeModifier("generic.attackSpeed", 2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.15, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
+        addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 8, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(i++, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -7, 0), new AttributeModifier("generic.attackSpeed", 7, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -5, 0), new AttributeModifier("generic.attackSpeed", 5, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -3, 0), new AttributeModifier("generic.attackSpeed", 3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -2, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -1, 0), new AttributeModifier("generic.attackSpeed", -2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(i++, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -2, 0), new AttributeModifier("generic.movementSpeed", -0.1, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(i++, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -3, 0), new AttributeModifier("generic.movementSpeed", -0.05, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
 
         addPrefixColor(Prefixes.LEGENDARY, TextFormatting.GOLD);
         addPrefixColor(Prefixes.GODLY, TextFormatting.YELLOW);

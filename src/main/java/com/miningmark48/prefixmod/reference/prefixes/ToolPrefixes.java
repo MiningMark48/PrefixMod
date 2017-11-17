@@ -15,11 +15,12 @@ public class ToolPrefixes {
     public static void init() {
         clearMaps();
 
-        addToMaps(0, ToolPrefixes.Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.2, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
-        addToMaps(1, ToolPrefixes.Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 25, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(2, ToolPrefixes.Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 10, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(3, ToolPrefixes.Prefixes.DEADLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 5, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(4, ToolPrefixes.Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 1, 0)}, new String[]{"generic.attackSpeed"});
+        int i = 0;
+        addToMaps(i, ToolPrefixes.Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.2, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
+        addToMaps(i++, ToolPrefixes.Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 25, 0)}, new String[]{"generic.attackDamage"});
+        addToMaps(i++, ToolPrefixes.Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 10, 0)}, new String[]{"generic.attackDamage"});
+        addToMaps(i++, ToolPrefixes.Prefixes.DEADLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 5, 0)}, new String[]{"generic.attackDamage"});
+        addToMaps(i++, ToolPrefixes.Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 1, 0)}, new String[]{"generic.attackSpeed"});
 
         addPrefixColor(ToolPrefixes.Prefixes.LEGENDARY, TextFormatting.GOLD);
         addPrefixColor(ToolPrefixes.Prefixes.GODLY, TextFormatting.YELLOW);
