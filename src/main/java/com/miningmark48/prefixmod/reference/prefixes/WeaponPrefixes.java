@@ -15,23 +15,34 @@ public class WeaponPrefixes {
     public static void init() {
         clearMaps();
 
-        addToMaps(0, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.2, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
-        addToMaps(1, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 25, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(2, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 10, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(3, Prefixes.DEADLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 5, 0)}, new String[]{"generic.attackDamage"});
-        addToMaps(4, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 1, 0)}, new String[]{"generic.attackSpeed"});
+        addToMaps(0, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", 5, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(1, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 20, 0), new AttributeModifier("generic.attackSpeed", 2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(2, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.15, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
+        addToMaps(3, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(4, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 8, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(5, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -7, 0), new AttributeModifier("generic.attackSpeed", 7, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(6, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -5, 0), new AttributeModifier("generic.attackSpeed", 5, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(7, Prefixes.FRENZYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -3, 0), new AttributeModifier("generic.attackSpeed", 3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(8, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -2, 0), new AttributeModifier("generic.attackSpeed", -1, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(9, Prefixes.ANNOYING, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", -1, 0), new AttributeModifier("generic.attackSpeed", -2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
+        addToMaps(10, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -2, 0), new AttributeModifier("generic.movementSpeed", -0.1, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
+        addToMaps(11, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -3, 0), new AttributeModifier("generic.movementSpeed", -0.05, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
 
         addPrefixColor(Prefixes.LEGENDARY, TextFormatting.GOLD);
         addPrefixColor(Prefixes.GODLY, TextFormatting.YELLOW);
-        addPrefixColor(Prefixes.DEADLY, TextFormatting.RED);
         addPrefixColor(Prefixes.QUICK, TextFormatting.GREEN);
+        addPrefixColor(Prefixes.FRENZYING, TextFormatting.LIGHT_PURPLE);
+        addPrefixColor(Prefixes.ANNOYING, TextFormatting.RED);
+        addPrefixColor(Prefixes.SLUGGISH, TextFormatting.DARK_RED);
     }
 
     public enum Prefixes {
         LEGENDARY,
         GODLY,
-        DEADLY,
-        QUICK
+        QUICK,
+        FRENZYING,
+        ANNOYING,
+        SLUGGISH
     }
 
     private static void clearMaps(){
