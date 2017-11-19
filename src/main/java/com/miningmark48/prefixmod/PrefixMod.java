@@ -1,5 +1,6 @@
 package com.miningmark48.prefixmod;
 
+import com.miningmark48.prefixmod.commands.CommandReforge;
 import com.miningmark48.prefixmod.commands.CommandRefreshPrefixes;
 import com.miningmark48.prefixmod.event.EventOnCraft;
 import com.miningmark48.prefixmod.event.EventTooltip;
@@ -45,6 +46,7 @@ public class PrefixMod {
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandRefreshPrefixes());
+        event.registerServerCommand(new CommandReforge());
     }
 
 }
