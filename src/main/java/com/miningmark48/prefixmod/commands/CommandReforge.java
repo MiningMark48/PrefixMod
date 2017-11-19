@@ -1,10 +1,9 @@
 package com.miningmark48.prefixmod.commands;
 
-import com.miningmark48.prefixmod.reference.prefixes.PrefixTypes;
-import com.miningmark48.prefixmod.reference.prefixes.ToolPrefixes;
-import com.miningmark48.prefixmod.reference.prefixes.WeaponPrefixes;
+import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
+import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixmod.utility.HandlePrefix;
-import jdk.internal.org.objectweb.asm.Handle;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
@@ -53,10 +52,10 @@ public class CommandReforge extends CommandBase {
             ItemStack heldItem = player.getHeldItem(EnumHand.MAIN_HAND);
             if (!heldItem.isEmpty() && args.length >= 1) {
                 if (args[0].equalsIgnoreCase("weapon")) {
-                    HandlePrefix.reforgePrefix(heldItem, PrefixTypes.WEAPON, WeaponPrefixes.prefixNameMap, WeaponPrefixes.modifierMap, WeaponPrefixes.modifierNameMap);
+                    HandlePrefix.reforgePrefix(heldItem, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
                 } else if (args[0].equalsIgnoreCase("tool")) {
-                    HandlePrefix.reforgePrefix(heldItem, PrefixTypes.TOOL, ToolPrefixes.prefixNameMap, ToolPrefixes.modifierMap, ToolPrefixes.modifierNameMap);
+                    HandlePrefix.reforgePrefix(heldItem, EnumPrefixTypes.TOOL, ToolPrefixesHandler.prefixNameMap, ToolPrefixesHandler.modifierMap, ToolPrefixesHandler.modifierNameMap);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
                 } else {
                     player.sendMessage(new TextComponentString(TextFormatting.RED + "Error: Invalid args"));

@@ -1,6 +1,6 @@
 package com.miningmark48.prefixmod.utility;
 
-import com.miningmark48.prefixmod.reference.prefixes.PrefixTypes;
+import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class HandlePrefix {
 
-    public static void addPrefix(ItemStack stack, PrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
+    public static void addPrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
         Random rand = new Random();
         int r = rand.nextInt(prefixNameMap.size());
         Enum prefix = prefixNameMap.get(r);
@@ -31,7 +31,7 @@ public class HandlePrefix {
         stack.getTagCompound().setString("type", type.toString());
     }
 
-    public static void reforgePrefix(ItemStack stack, PrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
+    public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
         if (stack.hasTagCompound()) {
             stack.getTagCompound().removeTag("AttributeModifiers");
             stack.getTagCompound().removeTag("display");

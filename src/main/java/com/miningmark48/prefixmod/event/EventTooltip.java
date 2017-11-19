@@ -1,9 +1,9 @@
 package com.miningmark48.prefixmod.event;
 
 import com.miningmark48.mininglib.utility.ModLogger;
-import com.miningmark48.prefixmod.reference.prefixes.PrefixTypes;
-import com.miningmark48.prefixmod.reference.prefixes.ToolPrefixes;
-import com.miningmark48.prefixmod.reference.prefixes.WeaponPrefixes;
+import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
+import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -18,13 +18,13 @@ public class EventTooltip {
             if (!stack.getTagCompound().getString("prefix").isEmpty() && !stack.getTagCompound().getString("type").isEmpty()) {
                 TextFormatting defaultColor = TextFormatting.AQUA;
                 try {
-                    switch (PrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
+                    switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                         case WEAPON:
-                            TextFormatting colorWeapon = WeaponPrefixes.colorMap.get(WeaponPrefixes.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                            TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
                             event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + stack.getTagCompound().getString("prefix"));
                             break;
                         case TOOL:
-                            TextFormatting colorTool = ToolPrefixes.colorMap.get(ToolPrefixes.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                            TextFormatting colorTool = ToolPrefixesHandler.colorMap.get(ToolPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
                             event.getToolTip().add(1, (colorTool == null ? defaultColor : colorTool) + stack.getTagCompound().getString("prefix"));
                             break;
                         default:

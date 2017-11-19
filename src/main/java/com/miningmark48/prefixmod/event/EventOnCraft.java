@@ -1,9 +1,9 @@
 package com.miningmark48.prefixmod.event;
 
 import com.miningmark48.mininglib.utility.ModLogger;
-import com.miningmark48.prefixmod.reference.prefixes.PrefixTypes;
-import com.miningmark48.prefixmod.reference.prefixes.ToolPrefixes;
-import com.miningmark48.prefixmod.reference.prefixes.WeaponPrefixes;
+import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
+import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixmod.utility.HandlePrefix;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,9 +21,9 @@ public class EventOnCraft {
 
             try {
                 if (item instanceof ItemSword) {
-                    HandlePrefix.addPrefix(stack, PrefixTypes.WEAPON, WeaponPrefixes.prefixNameMap, WeaponPrefixes.modifierMap, WeaponPrefixes.modifierNameMap);
+                    HandlePrefix.addPrefix(stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                 } else if (item instanceof ItemPickaxe || item instanceof ItemSpade || item instanceof ItemAxe || item instanceof ItemHoe || item instanceof ItemShears) {
-                    HandlePrefix.addPrefix(stack, PrefixTypes.TOOL, ToolPrefixes.prefixNameMap, ToolPrefixes.modifierMap, ToolPrefixes.modifierNameMap);
+                    HandlePrefix.addPrefix(stack, EnumPrefixTypes.TOOL, ToolPrefixesHandler.prefixNameMap, ToolPrefixesHandler.modifierMap, ToolPrefixesHandler.modifierNameMap);
                 }
             } catch (NullPointerException | ConcurrentModificationException e) {
                 ModLogger.fatal("Error occurred while adding prefix to item, please report to mod author.");

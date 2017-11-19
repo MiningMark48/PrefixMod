@@ -1,11 +1,11 @@
-package com.miningmark48.prefixmod.reference.prefixes;
+package com.miningmark48.prefixmod.init.prefixes;
 
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.HashMap;
 
-public class WeaponPrefixes {
+public class WeaponPrefixesHandler {
 
     public static HashMap<Integer, Enum> prefixNameMap = new HashMap<>();
     public static HashMap<Integer, AttributeModifier[]> modifierMap = new HashMap<>();
