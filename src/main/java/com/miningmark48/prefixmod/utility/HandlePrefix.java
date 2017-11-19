@@ -1,6 +1,6 @@
 package com.miningmark48.prefixmod.utility;
 
-import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
+import com.miningmark48.prefixmod.reference.EnumPrefixTypes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;

@@ -1,6 +1,6 @@
 package com.miningmark48.prefixmod.commands;
 
-import com.miningmark48.prefixmod.init.prefixes.EnumPrefixTypes;
+import com.miningmark48.prefixmod.reference.EnumPrefixTypes;
 import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
 import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixmod.utility.HandlePrefix;
