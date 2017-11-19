@@ -13,6 +13,10 @@ import java.util.Random;
 public class HandlePrefix {
 
     public static void addPrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
+        addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
+    }
+
+    public static void addPrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
         Random rand = new Random();
         int r = rand.nextInt(prefixNameMap.size());
         Enum prefix = prefixNameMap.get(r);
@@ -21,7 +25,7 @@ public class HandlePrefix {
         stack.setStackDisplayName(prefixName + " " + stack.getDisplayName());
 
         for (int i = 0; i <= modifierMap.get(r).length - 1; i++) {
-            stack.addAttributeModifier(modifierNameMap.get(r)[i],modifierMap.get(r)[i], EntityEquipmentSlot.MAINHAND);
+            stack.addAttributeModifier(modifierNameMap.get(r)[i],modifierMap.get(r)[i], slot);
         }
 
         if (stack.getTagCompound() == null) {
@@ -36,6 +40,14 @@ public class HandlePrefix {
             stack.getTagCompound().removeTag("AttributeModifiers");
             stack.getTagCompound().removeTag("display");
             addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap);
+        }
+    }
+
+    public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
+        if (stack.hasTagCompound()) {
+            stack.getTagCompound().removeTag("AttributeModifiers");
+            stack.getTagCompound().removeTag("display");
+            addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
         }
     }
 

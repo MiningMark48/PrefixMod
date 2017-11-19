@@ -1,6 +1,6 @@
 package com.miningmark48.prefixmod.commands;
 
-import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -44,7 +44,7 @@ public class CommandRefreshPrefixes extends CommandBase {
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         sender.sendMessage(new TextComponentString(TextFormatting.RED + "Refreshing prefixes... potential lag incoming!"));
         WeaponPrefixesHandler.init();
-        ToolPrefixesHandler.init();
+        ArmorPrefixesHandler.init();
         sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Prefixes refreshed!"));
     }
 

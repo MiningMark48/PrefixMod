@@ -1,7 +1,7 @@
 package com.miningmark48.prefixmod.commands;
 
 import com.miningmark48.prefixmod.reference.EnumPrefixTypes;
-import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixmod.utility.HandlePrefix;
 import net.minecraft.command.CommandBase;
@@ -9,6 +9,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumHand;
@@ -54,8 +55,8 @@ public class CommandReforge extends CommandBase {
                 if (args[0].equalsIgnoreCase("weapon")) {
                     HandlePrefix.reforgePrefix(heldItem, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
-                } else if (args[0].equalsIgnoreCase("tool")) {
-                    HandlePrefix.reforgePrefix(heldItem, EnumPrefixTypes.TOOL, ToolPrefixesHandler.prefixNameMap, ToolPrefixesHandler.modifierMap, ToolPrefixesHandler.modifierNameMap);
+                } else if (args[0].equalsIgnoreCase("armor")) {
+                    HandlePrefix.reforgePrefix(heldItem, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
                 } else {
                     player.sendMessage(new TextComponentString(TextFormatting.RED + "Error: Invalid args"));
@@ -76,7 +77,7 @@ public class CommandReforge extends CommandBase {
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos pos) {
         List<String> autocompletes = new ArrayList<>();
         autocompletes.add("weapon");
-        autocompletes.add("tool");
+        autocompletes.add("armor");
         return autocompletes;
     }
 

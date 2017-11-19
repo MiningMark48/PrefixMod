@@ -7,7 +7,9 @@ public enum EnumAttributes {
     MOVEMENT_SPEED("generic.movementSpeed"),
     LUCK("generic.luck"),
     MAX_HEALTH("generic.maxHealth"),
-    KNOCKBACK_RESISTANCE("generic.knockbackResistance");
+    KNOCKBACK_RESISTANCE("generic.knockbackResistance"),
+    ARMOR("generic.armor"),
+    ARMOR_TOUGHNESS("generic.armorToughness");
 
     private final String unlocalized;
 

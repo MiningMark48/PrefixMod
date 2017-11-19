@@ -2,7 +2,7 @@ package com.miningmark48.prefixmod.event;
 
 import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.prefixmod.reference.EnumPrefixTypes;
-import com.miningmark48.prefixmod.init.prefixes.ToolPrefixesHandler;
+import com.miningmark48.prefixmod.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
@@ -23,8 +23,8 @@ public class EventTooltip {
                             TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
                             event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + stack.getTagCompound().getString("prefix"));
                             break;
-                        case TOOL:
-                            TextFormatting colorTool = ToolPrefixesHandler.colorMap.get(ToolPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                        case ARMOR:
+                            TextFormatting colorTool = ArmorPrefixesHandler.colorMap.get(ArmorPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
                             event.getToolTip().add(1, (colorTool == null ? defaultColor : colorTool) + stack.getTagCompound().getString("prefix"));
                             break;
                         default:
