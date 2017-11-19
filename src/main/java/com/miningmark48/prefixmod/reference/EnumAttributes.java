@@ -1,6 +1,6 @@
 package com.miningmark48.prefixmod.reference;
 
-public enum EnumEffects {
+public enum EnumAttributes {
 
     ATTACK_DAMAGE("generic.attackDamage"),
     ATTACK_SPEED("generic.attackSpeed"),
@@ -11,7 +11,7 @@ public enum EnumEffects {
 
     private final String unlocalized;
 
-    EnumEffects(String s) {
+    EnumAttributes(String s) {
         this.unlocalized = s;
     }
 
