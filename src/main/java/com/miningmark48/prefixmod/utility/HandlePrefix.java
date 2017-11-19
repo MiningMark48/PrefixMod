@@ -36,11 +36,7 @@ public class HandlePrefix {
     }
 
     public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
-        if (stack.hasTagCompound()) {
-            stack.getTagCompound().removeTag("AttributeModifiers");
-            stack.getTagCompound().removeTag("display");
-            addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap);
-        }
+        reforgePrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
     }
 
     public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
