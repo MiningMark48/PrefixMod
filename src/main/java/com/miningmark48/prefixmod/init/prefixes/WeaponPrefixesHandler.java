@@ -18,7 +18,7 @@ public class WeaponPrefixesHandler {
         int i = 0;
         addToMaps(i, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", 5, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.movementSpeed"});
         addToMaps(i++, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 20, 0), new AttributeModifier("generic.attackSpeed", 2, 0), new AttributeModifier("generic.luck", 3, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.luck"});
-        addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.15, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed"});
+        addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.movementSpeed", 0.15, 0), new AttributeModifier("generic.maxHealth", 5, 0)}, new String[]{"generic.attackDamage", "generic.movementSpeed", "generic.maxHealth"});
         addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 15, 0), new AttributeModifier("generic.attackSpeed", -1, 0), new AttributeModifier("generic.luck", 2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed", "generic.luck"});
         addToMaps(i++, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", 8, 0), new AttributeModifier("generic.movementSpeed", 0.3, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
         addToMaps(i++, Prefixes.DEADLY, new AttributeModifier[]{new AttributeModifier("generic.attackDamage", 5, 0), new AttributeModifier("generic.attackSpeed", 2, 0)}, new String[]{"generic.attackDamage", "generic.attackSpeed"});
@@ -32,6 +32,7 @@ public class WeaponPrefixesHandler {
         addToMaps(i++, Prefixes.SLUGGISH, new AttributeModifier[]{new AttributeModifier("generic.attackSpeed", -3, 0), new AttributeModifier("generic.movementSpeed", -0.025, 0)}, new String[]{"generic.attackSpeed", "generic.movementSpeed"});
         addToMaps(i++, Prefixes.LUCKY, new AttributeModifier[]{new AttributeModifier("generic.luck", 5, 0)}, new String[]{"generic.luck"});
         addToMaps(i++, Prefixes.LUCKY, new AttributeModifier[]{new AttributeModifier("generic.luck", 7, 0)}, new String[]{"generic.luck"});
+        addToMaps(i++, Prefixes.FORTIFIED, new AttributeModifier[]{new AttributeModifier("generic.knockbackResistance", 3, 0), new AttributeModifier("generic.maxHealth", 2, 0)}, new String[]{"generic.knockbackResistance", "generic.maxHealth"});
 
         addPrefixColor(Prefixes.LEGENDARY, TextFormatting.GOLD);
         addPrefixColor(Prefixes.GODLY, TextFormatting.YELLOW);
@@ -41,6 +42,7 @@ public class WeaponPrefixesHandler {
         addPrefixColor(Prefixes.ANNOYING, TextFormatting.RED);
         addPrefixColor(Prefixes.SLUGGISH, TextFormatting.DARK_RED);
         addPrefixColor(Prefixes.LUCKY, TextFormatting.DARK_GREEN);
+        addPrefixColor(Prefixes.FORTIFIED, TextFormatting.DARK_BLUE);
     }
 
     public enum Prefixes {
@@ -51,7 +53,8 @@ public class WeaponPrefixesHandler {
         FRENZYING,
         ANNOYING,
         SLUGGISH,
-        LUCKY
+        LUCKY,
+        FORTIFIED
     }
 
     private static void clearMaps(){
