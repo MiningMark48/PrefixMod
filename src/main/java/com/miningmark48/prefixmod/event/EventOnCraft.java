@@ -21,7 +21,7 @@ public class EventOnCraft {
             Item item = stack.getItem();
 
             try {
-                if (item instanceof ItemSword) {
+                if (item instanceof ItemSword || item instanceof ItemAxe) {
                     HandlePrefix.addPrefix(stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                 } else if (item instanceof ItemArmor) {
                     if (((ItemArmor) item).armorType == EntityEquipmentSlot.CHEST) {
