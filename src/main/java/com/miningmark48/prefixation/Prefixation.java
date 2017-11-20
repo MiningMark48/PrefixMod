@@ -45,7 +45,7 @@ public class Prefixation {
 
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
-        event.registerServerCommand(new CommandRefreshPrefixes());
+        //event.registerServerCommand(new CommandRefreshPrefixes());
         event.registerServerCommand(new CommandReforge());
     }
 
