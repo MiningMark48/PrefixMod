@@ -22,12 +22,17 @@ public class ArmorPrefixesHandler {
         addToMaps(i++, Prefixes.DURABLE, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 6, 0)}, new String[]{EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized()});
         addToMaps(i++, Prefixes.HEAVY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), -0.015, 0), new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.KNOCKBACK_RESISTANCE.getUnlocalized(), 2, 0)}, new String[]{EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.KNOCKBACK_RESISTANCE.getUnlocalized()});
         addToMaps(i++, Prefixes.LIGHT, new AttributeModifier[]{new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.015, 0), new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), -2, 0), new AttributeModifier(EnumAttributes.KNOCKBACK_RESISTANCE.getUnlocalized(), -2, 0)}, new String[]{EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.KNOCKBACK_RESISTANCE.getUnlocalized()});
+        addToMaps(i++, Prefixes.QUICK, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 8, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()});
+        addToMaps(i++, Prefixes.LUCKY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.LUCK.getUnlocalized(), 5, 0)}, new String[]{EnumAttributes.LUCK.getUnlocalized()});
+        addToMaps(i++, Prefixes.LUCKY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.LUCK.getUnlocalized(), 7, 0)}, new String[]{EnumAttributes.LUCK.getUnlocalized()});
 
         addPrefixColor(Prefixes.LEGENDARY, TextFormatting.GOLD);
         addPrefixColor(Prefixes.GODLY, TextFormatting.YELLOW);
         addPrefixColor(Prefixes.DURABLE, TextFormatting.DARK_BLUE);
         addPrefixColor(Prefixes.HEAVY, TextFormatting.DARK_PURPLE);
         addPrefixColor(Prefixes.LIGHT, TextFormatting.AQUA);
+        addPrefixColor(Prefixes.QUICK, TextFormatting.GREEN);
+        addPrefixColor(Prefixes.LUCKY, TextFormatting.DARK_GREEN);
     }
 
     public enum Prefixes {
@@ -35,7 +40,9 @@ public class ArmorPrefixesHandler {
         GODLY,
         DURABLE,
         HEAVY,
-        LIGHT
+        LIGHT,
+        QUICK,
+        LUCKY
     }
 
     private static void clearMaps(){
