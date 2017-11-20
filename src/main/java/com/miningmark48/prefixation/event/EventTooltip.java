@@ -16,7 +16,7 @@ public class EventTooltip {
         ItemStack stack = event.getItemStack();
         if (stack.getTagCompound() != null) {
             if (!stack.getTagCompound().getString("prefix").isEmpty() && !stack.getTagCompound().getString("type").isEmpty()) {
-                TextFormatting defaultColor = TextFormatting.AQUA;
+                TextFormatting defaultColor = TextFormatting.GRAY;
                 try {
                     switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                         case WEAPON:
