@@ -11,4 +11,4 @@ Running the command `/prefix_reforge <type>` will reforge the item into a new pr
 There will be more to come to this mod, such as more prefixes, configuration settings, and possibly custom prefixes. Only time will tell.
 
 ### Credits
-Terraria: For the original concept and where the idea came froM.
+Terraria: For the original concept and where the idea came from.
