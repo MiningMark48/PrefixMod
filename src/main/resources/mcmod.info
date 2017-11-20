@@ -1,7 +1,7 @@
 [
   {
-    "modid": "prefixmod",
-    "name": "PrefixMod",
+    "modid": "prefixation",
+    "name": "Prefixation",
     "description": "Adds prefixes to your weapons and armor to make them better (or worse).",
     "version": "0.0.1",
     "mcversion": "1.12.2",

@@ -1,4 +1,4 @@
-package com.miningmark48.prefixmod.proxy;
+package com.miningmark48.prefixation.proxy;
 
 public class CommonProxy {
 

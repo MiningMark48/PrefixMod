@@ -1,4 +1,4 @@
-package com.miningmark48.prefixmod.reference;
+package com.miningmark48.prefixation.reference;
 
 public enum EnumPrefixTypes {
 

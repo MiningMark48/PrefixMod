@@ -1,6 +1,6 @@
-# PrefixMod
+# Prefixation
 
-PrefixMod (Final Name TBD) is a mod that adds prefixes to your weapons and armor to make them better (or worse).
+Prefixation is a mod that adds prefixes to your weapons and armor to make them better (or worse).
 
 ## How do I use the mod?
 When you craft a Sword, an Axe, or a Chestplate a prefix will be assigned as well as some attributes.
