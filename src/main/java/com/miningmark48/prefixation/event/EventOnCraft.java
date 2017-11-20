@@ -1,10 +1,10 @@
-package com.miningmark48.prefixmod.event;
+package com.miningmark48.prefixation.event;
 
 import com.miningmark48.mininglib.utility.ModLogger;
-import com.miningmark48.prefixmod.reference.EnumPrefixTypes;
-import com.miningmark48.prefixmod.init.prefixes.ArmorPrefixesHandler;
-import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
-import com.miningmark48.prefixmod.utility.HandlePrefix;
+import com.miningmark48.prefixation.reference.EnumPrefixTypes;
+import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
+import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
+import com.miningmark48.prefixation.utility.HandlePrefix;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

@@ -1,6 +1,6 @@
-package com.miningmark48.prefixmod.init.prefixes;
+package com.miningmark48.prefixation.init.prefixes;
 
-import com.miningmark48.prefixmod.reference.EnumAttributes;
+import com.miningmark48.prefixation.reference.EnumAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.util.text.TextFormatting;
 

@@ -1,7 +1,7 @@
-package com.miningmark48.prefixmod.commands;
+package com.miningmark48.prefixation.commands;
 
-import com.miningmark48.prefixmod.init.prefixes.ArmorPrefixesHandler;
-import com.miningmark48.prefixmod.init.prefixes.WeaponPrefixesHandler;
+import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
+import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
