@@ -4,6 +4,7 @@ import com.miningmark48.prefixation.commands.CommandReforge;
 import com.miningmark48.prefixation.commands.CommandRefreshPrefixes;
 import com.miningmark48.prefixation.event.EventOnCraft;
 import com.miningmark48.prefixation.event.EventTooltip;
+import com.miningmark48.prefixation.init.*;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.proxy.CommonProxy;
 import com.miningmark48.prefixation.reference.Reference;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(
         modid = Reference.MOD_ID,
@@ -31,6 +33,16 @@ public class Prefixation {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        ModNetworking.init();
+
+        ModBlocks.init();
+        ModRegistry.init();
+        ModTiles.init();
+
+        MinecraftForge.EVENT_BUS.register(new ModRegistry());
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+
         WeaponPrefixesHandler.init();
         ArmorPrefixesHandler.init();
 
@@ -41,6 +53,7 @@ public class Prefixation {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init();
+        proxy.registerRenders();
     }
 
     @Mod.EventHandler

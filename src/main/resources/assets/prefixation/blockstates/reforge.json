@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down":  { "model": "prefixation:reforge", "x": 180 },
+    "facing=up":    { "model": "prefixation:reforge" },
+    "facing=north": { "model": "prefixation:reforge" },
+    "facing=south": { "model": "prefixation:reforge", "y": 180 },
+    "facing=west":  { "model": "prefixation:reforge", "y": 270 },
+    "facing=east":  { "model": "prefixation:reforge", "y": 90 }
+  }
+}
