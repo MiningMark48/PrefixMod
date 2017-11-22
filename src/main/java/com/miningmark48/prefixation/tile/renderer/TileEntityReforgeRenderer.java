@@ -10,8 +10,11 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumFacing;
 import scala.Int;
+
+import java.util.Random;
 
 public class TileEntityReforgeRenderer extends TileEntitySpecialRenderer<TileEntityReforge> {
 
@@ -104,7 +107,59 @@ public class TileEntityReforgeRenderer extends TileEntitySpecialRenderer<TileEnt
 
             GlStateManager.popMatrix();
 
+            //Shelves
+            for (int i = 0; i <= 2; i++) {
+                for (int j = 0; j <= 1; j++) {
+
+                    GlStateManager.pushMatrix();
+
+                    GlStateManager.translate(x + 0.5D, y + 0.5D, z + 0.5D);
+
+                    GlStateManager.scale(0.2D, 0.2D, 0.2D);
+
+                    double xBase4 = i - 1;
+                    double x1Base4 = 2.15;
+                    double zbase4 = 2.15;
+                    double z1Base4 = i - 1;
+                    double xOffset4 = (facingIndex == 1 ? xBase4 : (facingIndex == 2 ? -x1Base4 : (facingIndex == 3 ? -xBase4 : (facingIndex == 4 ? x1Base4 : 0))));
+                    double yOffset4 = (j % 2 == 1) ? (j + 1) : (j + .75);
+                    double zOffset4 = (facingIndex == 1 ? zbase4 : (facingIndex == 2 ? z1Base4 : (facingIndex == 3 ? -zbase4 : (facingIndex == 4 ? -z1Base4 : 0))));
+
+                    GlStateManager.translate(xOffset4, yOffset4, zOffset4);
+
+                    GlStateManager.rotate((facingIndex * 360.0F / 4.0f) + 90, 0f, 1f, 0f);
+
+                    Minecraft.getMinecraft().getRenderItem().renderItem(getItem(i, j), ItemCameraTransforms.TransformType.FIXED);
+
+                    GlStateManager.popMatrix();
+                }
+
+            }
+
         }
+    }
+
+    private static ItemStack getItem(int index, int index2) {
+        if (index2 == 0) {
+            switch (index) {
+                case 0:
+                    return new ItemStack(Items.GOLDEN_CHESTPLATE);
+                case 1:
+                    return new ItemStack(Items.IRON_CHESTPLATE);
+                case 2:
+                    return new ItemStack(Items.DIAMOND_CHESTPLATE);
+            }
+        } else {
+            switch (index) {
+                case 0:
+                    return new ItemStack(Items.DIAMOND_CHESTPLATE);
+                case 1:
+                    return new ItemStack(Items.GOLDEN_CHESTPLATE);
+                case 2:
+                    return new ItemStack(Items.IRON_CHESTPLATE);
+            }
+        }
+        return new ItemStack(Items.CHAINMAIL_CHESTPLATE);
     }
 
     private static int getIndex(EnumFacing facing) {
