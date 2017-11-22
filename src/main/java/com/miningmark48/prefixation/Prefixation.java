@@ -13,6 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -47,13 +48,17 @@ public class Prefixation {
         ArmorPrefixesHandler.init();
 
         MinecraftForge.EVENT_BUS.register(new EventOnCraft());
-        MinecraftForge.EVENT_BUS.register(new EventTooltip());
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init();
+        proxy.init(event);
         proxy.registerRenders();
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit(event);
     }
 
     @Mod.EventHandler
