@@ -38,7 +38,7 @@ public class MessageExperience implements IMessage, IMessageHandler<MessageExper
     @Override
     public IMessage onMessage(MessageExperience message, MessageContext ctx) {
 
-        ctx.getServerHandler().player.experienceLevel = message.experience;
+
 
         return null;
     }

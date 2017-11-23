@@ -13,7 +13,7 @@ public class ModNetworking {
 
     public static void init(){
         INSTANCE.registerMessage(MessageReforge.class, MessageReforge.class, 0, Side.SERVER);
-        INSTANCE.registerMessage(MessageExperience.class, MessageExperience.class, 1, Side.SERVER);
+        INSTANCE.registerMessage(MessageExperience.class, MessageExperience.class, 1, Side.CLIENT);
     }
 
 }

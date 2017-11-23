@@ -2,27 +2,17 @@ package com.miningmark48.prefixation.client.gui;
 
 import com.miningmark48.prefixation.container.ContainerReforge;
 import com.miningmark48.prefixation.init.ModNetworking;
-import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
-import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
-import com.miningmark48.prefixation.network.messages.MessageExperience;
 import com.miningmark48.prefixation.network.messages.MessageReforge;
-import com.miningmark48.prefixation.reference.EnumPrefixTypes;
 import com.miningmark48.prefixation.reference.Reference;
 import com.miningmark48.prefixation.tile.TileEntityReforge;
 import com.miningmark48.prefixation.utility.GuiUtils;
-import com.miningmark48.prefixation.utility.HandlePrefix;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.opengl.GL11;
 
@@ -38,9 +28,9 @@ public class GuiReforge extends GuiContainer {
     private EntityPlayer player;
     private TileEntityReforge te;
 
-    private int xpAmount = 2;
-
     private GuiButton buttonReforge;
+
+    private int xpAmount = 2;
 
     public GuiReforge(IInventory playerInv, TileEntityReforge te, EntityPlayer player) {
         super(new ContainerReforge(playerInv, te));
@@ -66,24 +56,11 @@ public class GuiReforge extends GuiContainer {
 
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
-        ItemStack stack = this.te.getStackInSlot(0);
-        if (!stack.isEmpty()) {
-            if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemAxe) {
-                HandlePrefix.reforgePrefix(stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
-                if (!this.player.isCreative()) this.player.experienceLevel -= xpAmount;
-                player.playSound(SoundEvents.BLOCK_ANVIL_USE, 1.0f, 1.0f);
-            } else if (stack.getItem() instanceof ItemArmor) {
-                if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) {
-                    HandlePrefix.reforgePrefix(stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
-                    if (!this.player.isCreative()) this.player.experienceLevel -= xpAmount;
-                    player.playSound(SoundEvents.BLOCK_ANVIL_USE, 1.0f, 1.0f);
-                }
-            }
-            this.te.markDirty();
-        }
 
-        ModNetworking.INSTANCE.sendToServer(new MessageReforge(this.te.getPos(), this.te.getTileData()));
-        ModNetworking.INSTANCE.sendToServer(new MessageExperience(this.player.experienceLevel));
+        if (button.mousePressed(Minecraft.getMinecraft(), button.x, button.y)) {
+            ModNetworking.INSTANCE.sendToServer(new MessageReforge(this.te.getPos(), this.xpAmount));
+            player.playSound(SoundEvents.BLOCK_ANVIL_USE, 1.0f, 1.0f);
+        }
 
     }
 
@@ -130,13 +107,6 @@ public class GuiReforge extends GuiContainer {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-    }
-
-    @Override
-    public void onGuiClosed() {
-        ModNetworking.INSTANCE.sendToServer(new MessageReforge(this.te.getPos(), this.te.getTileData()));
-
-        super.onGuiClosed();
     }
 
     private void renderTooltips(int mouseX, int mouseY){
