@@ -7,5 +7,32 @@ config.reforge_enabled.desc=Should the Tinkerer's Workstation be enabled for ref
 config.reforge_experience_use_amount.title=Tinkerer's Workstation XP Amount
 config.reforge_experience_use_amount.desc=Amount of XP needed to reforge the player's items
 
-#Tooltips
-s
+#Advancements
+advancements.main.get_reforge.title=Goblin in a box!
+advancements.main.get_reforge.desc=Make a Tinkerer's Workstation to reforge your items!
+
+	#Prefixes
+advancements.prefix.prefix_legendary.title=Legendary!
+advancements.prefix.prefix_legendary.desc=That's legen... dary!
+advancements.prefix.prefix_godly.title=Godly!
+advancements.prefix.prefix_godly.desc=It's so God-like!
+advancements.prefix.prefix_quick.title=Quick!
+advancements.prefix.prefix_quick.desc=He gone!
+advancements.prefix.prefix_deadly.title=Deadly!
+advancements.prefix.prefix_deadly.desc=Thou shall die.
+advancements.prefix.prefix_frenzying.title=Frenzying!
+advancements.prefix.prefix_frenzying.desc=Like a shark.
+advancements.prefix.prefix_annoying.title=Annoying!
+advancements.prefix.prefix_annoying.desc=A little brother in an item.
+advancements.prefix.prefix_sluggish.title=Sluggish!
+advancements.prefix.prefix_sluggish.desc=So slooowww.
+advancements.prefix.prefix_lucky.title=Lucky!
+advancements.prefix.prefix_lucky.desc=They're magically delicious!
+advancements.prefix.prefix_fortified.title=Fortified!
+advancements.prefix.prefix_fortified.desc=She's a brick... 
+advancements.prefix.prefix_durable.title=Durable!
+advancements.prefix.prefix_durable.desc=Resistant to most rips and tears!
+advancements.prefix.prefix_heavy.title=Heavy!
+advancements.prefix.prefix_heavy.desc=It's so heavy...
+advancements.prefix.prefix_light.title=Light!
+advancements.prefix.prefix_light.desc=Like a feather.

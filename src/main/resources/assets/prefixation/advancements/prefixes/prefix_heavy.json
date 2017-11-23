@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:diamond_sword"
+    },
+    "title": {
+      "translate": "advancements.prefix.prefix_heavy.title"
+    },
+    "description": {
+      "translate": "advancements.prefix.prefix_heavy.desc"
+    }
+  },
+  "criteria": {
+    "prefix": {
+      "trigger": "prefixation:prefix",
+      "conditions": {
+        "prefix": "heavy"
+      }
+    }
+  }
+}

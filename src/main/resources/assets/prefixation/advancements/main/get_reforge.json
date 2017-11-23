@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "prefixation:reforge"
+        },
+        "title": {
+            "translate": "advancements.main.get_reforge.title"
+        },
+        "description": {
+            "translate": "advancements.main.get_reforge.desc"
+        }
+    },
+    "criteria": {
+        "reforge": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "prefixation:reforge"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,9 +1,10 @@
 package com.miningmark48.prefixation.utility;
 
-import com.miningmark48.mininglib.utility.ModLogger;
+import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,11 +15,11 @@ import java.util.Random;
 
 public class HandlePrefix {
 
-    public static void addPrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
-        addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
+    public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
+        addPrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
     }
 
-    public static void addPrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
+    public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
         Random rand = new Random();
         int r = rand.nextInt(prefixNameMap.size());
         Enum prefix = prefixNameMap.get(r);
@@ -35,18 +36,24 @@ public class HandlePrefix {
         }
         stack.getTagCompound().setString("prefix", prefixName);
         stack.getTagCompound().setString("type", type.toString());
+
+        handleAdvancement(player, prefixName);
     }
 
-    public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
-        reforgePrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
+    public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){
+        reforgePrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, EntityEquipmentSlot.MAINHAND);
     }
 
-    public static void reforgePrefix(ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
+    public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
         if (stack.hasTagCompound()) {
             stack.getTagCompound().removeTag("AttributeModifiers");
             stack.getTagCompound().removeTag("display");
-            addPrefix(stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
+            addPrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
         }
+    }
+
+    private static void handleAdvancement(EntityPlayer player, String prefix) {
+        ModTriggers.Advancements.prefix.trigger((EntityPlayerMP) player, prefix.toLowerCase());
     }
 
 }

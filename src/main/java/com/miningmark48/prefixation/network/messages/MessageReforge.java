@@ -59,11 +59,11 @@ public class MessageReforge implements IMessage, IMessageHandler<MessageReforge,
             ItemStack stack = ted.getStackInSlot(0);
             if (!stack.isEmpty()) {
                 if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemAxe) {
-                    HandlePrefix.reforgePrefix(stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
+                    HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                     if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                 } else if (stack.getItem() instanceof ItemArmor) {
                     if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) {
-                        HandlePrefix.reforgePrefix(stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
+                        HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
                         if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                     }
                 }

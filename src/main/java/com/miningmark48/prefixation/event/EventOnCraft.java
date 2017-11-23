@@ -22,10 +22,10 @@ public class EventOnCraft {
 
             try {
                 if (item instanceof ItemSword || item instanceof ItemAxe) {
-                    HandlePrefix.addPrefix(stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
+                    HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                 } else if (item instanceof ItemArmor) {
                     if (((ItemArmor) item).armorType == EntityEquipmentSlot.CHEST) {
-                        HandlePrefix.addPrefix(stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
+                        HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
                     }
                 }
             } catch (NullPointerException | ConcurrentModificationException e) {

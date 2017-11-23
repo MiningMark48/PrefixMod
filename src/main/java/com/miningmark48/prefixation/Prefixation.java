@@ -1,5 +1,6 @@
 package com.miningmark48.prefixation;
 
+import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.commands.CommandReforge;
 import com.miningmark48.prefixation.event.EventOnCraft;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
@@ -50,6 +51,8 @@ public class Prefixation {
         ModNetworking.init();
 
         MinecraftForge.EVENT_BUS.register(new EventOnCraft());
+
+        ModTriggers.init();
     }
 
     @Mod.EventHandler
