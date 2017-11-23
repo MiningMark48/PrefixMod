@@ -2,6 +2,7 @@ package com.miningmark48.prefixation;
 
 import com.miningmark48.prefixation.commands.CommandReforge;
 import com.miningmark48.prefixation.event.EventOnCraft;
+import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.*;
 import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
@@ -32,18 +33,21 @@ public class Prefixation {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        ModNetworking.init();
+
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
 
         ModBlocks.init();
-        ModRegistry.init();
         ModTiles.init();
-
+        ModRegistry.init();
         MinecraftForge.EVENT_BUS.register(new ModRegistry());
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
         WeaponPrefixesHandler.init();
         ArmorPrefixesHandler.init();
+
+        ModNetworking.init();
 
         MinecraftForge.EVENT_BUS.register(new EventOnCraft());
     }

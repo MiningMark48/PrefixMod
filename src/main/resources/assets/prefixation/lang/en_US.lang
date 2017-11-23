@@ -1,2 +1,11 @@
 #Blocks
 tile.reforge.name=Tinkerer's Workstation
+
+#Configs
+config.reforge_enabled.title=Tinkerer's Workstation Enabled
+config.reforge_enabled.desc=Should the Tinkerer's Workstation be enabled for reforging items?
+config.reforge_experience_use_amount.title=Tinkerer's Workstation XP Amount
+config.reforge_experience_use_amount.desc=Amount of XP needed to reforge the player's items
+
+#Tooltips
+s

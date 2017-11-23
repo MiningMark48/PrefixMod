@@ -1,6 +1,7 @@
 package com.miningmark48.prefixation.init;
 
 import com.miningmark48.mininglib.base.item.ModItemBlock;
+import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -22,11 +23,11 @@ public class ModRegistry {
     }
 
     private static void registerBlocks() {
-        registerBlock(ModBlocks.reforge);
+        if (ConfigurationHandler.reforge_enabled) registerBlock(ModBlocks.reforge);
     }
 
     public static void registerRenderBlocks() {
-        registerBlockRender(ModBlocks.reforge);
+        if (ConfigurationHandler.reforge_enabled) registerBlockRender(ModBlocks.reforge);
     }
 
     //Registry

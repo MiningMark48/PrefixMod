@@ -1,6 +1,7 @@
 package com.miningmark48.prefixation.client.gui;
 
 import com.miningmark48.prefixation.container.ContainerReforge;
+import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.ModNetworking;
 import com.miningmark48.prefixation.network.messages.MessageReforge;
 import com.miningmark48.prefixation.reference.Reference;
@@ -30,7 +31,7 @@ public class GuiReforge extends GuiContainer {
 
     private GuiButton buttonReforge;
 
-    private int xpAmount = 2;
+    private int xpAmount = ConfigurationHandler.reforge_experience_use_amount;
 
     public GuiReforge(IInventory playerInv, TileEntityReforge te, EntityPlayer player) {
         super(new ContainerReforge(playerInv, te));
