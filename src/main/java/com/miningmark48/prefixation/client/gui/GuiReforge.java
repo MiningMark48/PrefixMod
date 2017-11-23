@@ -1,8 +1,10 @@
 package com.miningmark48.prefixation.client.gui;
 
+import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.container.ContainerReforge;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.ModNetworking;
+import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.network.messages.MessageReforge;
 import com.miningmark48.prefixation.reference.Reference;
 import com.miningmark48.prefixation.tile.TileEntityReforge;
@@ -48,7 +50,7 @@ public class GuiReforge extends GuiContainer {
     public void initGui() {
         super.initGui();
 
-        buttonReforge = new GuiButton(0, getGuiLeft() + 58, getGuiTop() + 52, 60, 20, "Reforge");
+        buttonReforge = new GuiButton(0, getGuiLeft() + 58, getGuiTop() + 52, 60, 20, ModTranslate.toLocal("gui.reforge.button.reforge"));
         buttonReforge.enabled = canReforge();
 
         this.buttonList.add(buttonReforge);
@@ -89,7 +91,7 @@ public class GuiReforge extends GuiContainer {
                 color = 0x078007;
             }
 
-            String xpText = String.format("XP Cost: %sL", xpAmount);
+            String xpText = String.format(ModTranslate.toLocal("gui.reforge.xp_cost"), xpAmount);
             int x2 = GuiUtils.getXCenter(xpText, this.fontRenderer, xSize);
             this.fontRenderer.drawString(xpText, x2 + 1, 43, 0x404040);
             this.fontRenderer.drawString(xpText, x2, 42, color);
@@ -113,12 +115,12 @@ public class GuiReforge extends GuiContainer {
     private void renderTooltips(int mouseX, int mouseY){
         if (this.isMouseOver(mouseX, mouseY, 150, 6, 165, 21)) {
             List<String> text = new ArrayList<String>();
-            text.add(TextFormatting.BOLD + "" + TextFormatting.UNDERLINE + "Info");
-            text.add("Put an item into the slot and click \"Reforge\"");
-            text.add("to reforge the item to have a new prefix.");
+            text.add(TextFormatting.BOLD + "" + TextFormatting.UNDERLINE + ModTranslate.toLocal("tooltip.gui.reforge.info.header"));
+            text.add(ModTranslate.toLocal("tooltip.gui.reforge.info.line1"));
+            text.add(ModTranslate.toLocal("tooltip.gui.reforge.info.line2"));
             if (!this.player.isCreative()) {
                 text.add("");
-                text.add(String.format("Requires %s level%s of experience.", xpAmount, xpAmount == 1 ? "" : "s"));
+                text.add(String.format(ModTranslate.toLocal("tooltip.gui.reforge.info.line3"), xpAmount, xpAmount == 1 ? "" : "s"));
             }
             net.minecraftforge.fml.client.config.GuiUtils.drawHoveringText(text, mouseX - ((this.width - this.xSize) / 2), mouseY - ((this.height - this.ySize) / 2), mc.displayWidth, mc.displayHeight, -1, mc.fontRenderer);
         }

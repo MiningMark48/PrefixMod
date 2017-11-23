@@ -36,3 +36,11 @@ advancements.prefix.prefix_heavy.title=Heavy!
 advancements.prefix.prefix_heavy.desc=It's so heavy...
 advancements.prefix.prefix_light.title=Light!
 advancements.prefix.prefix_light.desc=Like a feather.
+
+#GUI
+gui.reforge.xp_cost=XP Cost: %sL
+gui.reforge.button.reforge=Reforge
+tooltip.gui.reforge.info.header=Info
+tooltip.gui.reforge.info.line1=Put an item in the slot and click "Reforge"
+tooltip.gui.reforge.info.line2=to reforge the item to have a new prefix.
+tooltip.gui.reforge.info.line3=Requires %s level%s of experience.
