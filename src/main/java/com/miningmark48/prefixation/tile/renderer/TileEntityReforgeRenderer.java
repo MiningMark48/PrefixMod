@@ -1,24 +1,16 @@
 package com.miningmark48.prefixation.tile.renderer;
 
-import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.prefixation.block.BlockReforge;
 import com.miningmark48.prefixation.tile.TileEntityReforge;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumFacing;
-import scala.Int;
-
-import java.util.Random;
 
 public class TileEntityReforgeRenderer extends TileEntitySpecialRenderer<TileEntityReforge> {
-
-    private EntityItem entityItem = new EntityItem(Minecraft.getMinecraft().world, 0D, 0D, 0D);
 
     @Override
     public void render(TileEntityReforge te, double x, double y, double z, float partialTicks, int destroyStage, float partial) {

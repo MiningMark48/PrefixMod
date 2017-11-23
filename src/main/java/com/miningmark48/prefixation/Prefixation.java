@@ -1,14 +1,12 @@
 package com.miningmark48.prefixation;
 
 import com.miningmark48.prefixation.commands.CommandReforge;
-import com.miningmark48.prefixation.commands.CommandRefreshPrefixes;
 import com.miningmark48.prefixation.event.EventOnCraft;
-import com.miningmark48.prefixation.event.EventTooltip;
 import com.miningmark48.prefixation.init.*;
+import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.proxy.CommonProxy;
 import com.miningmark48.prefixation.reference.Reference;
-import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
