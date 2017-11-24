@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "ZXA",
+    "XYX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "Y": {
+      "item": "minecraft:anvil",
+      "data": 0
+    },
+    "Z": {
+      "item": "minecraft:golden_sword"
+    },
+    "A": {
+      "item": "minecraft:diamond_axe"
+    }
+  },
+  "result": {
+    "item": "prefixation:reforge",
+    "count": 1
+  }
+}
