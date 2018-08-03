@@ -53,7 +53,7 @@ public class HandlePrefix {
         stack.getTagCompound().removeTag("AttributeModifiers");
         stack.getTagCompound().removeTag("display");
         addPrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
-        
+
     }
 
     private static void handleAdvancement(EntityPlayer player, String prefix) {
