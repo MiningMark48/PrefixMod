@@ -1,5 +1,6 @@
 package com.miningmark48.prefixation.network.messages;
 
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
@@ -55,14 +56,13 @@ public class MessageReforge implements IMessage, IMessageHandler<MessageReforge,
 
         if (te instanceof TileEntityReforge){
             TileEntityReforge ted = (TileEntityReforge) te;
-
             ItemStack stack = ted.getStackInSlot(0);
             if (!stack.isEmpty()) {
                 if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemAxe) {
                     HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
                     if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                 } else if (stack.getItem() instanceof ItemArmor) {
-                    if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) {
+                    if (((ItemArmor) stack.getItem()).armorType.equals(EntityEquipmentSlot.CHEST)) {
                         HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
                         if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                     }

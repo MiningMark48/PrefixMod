@@ -45,11 +45,15 @@ public class HandlePrefix {
     }
 
     public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap, EntityEquipmentSlot slot){
-        if (stack.hasTagCompound()) {
-            stack.getTagCompound().removeTag("AttributeModifiers");
-            stack.getTagCompound().removeTag("display");
-            addPrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
+
+        if (!stack.hasTagCompound()) {
+            stack.setTagCompound(new NBTTagCompound());
         }
+
+        stack.getTagCompound().removeTag("AttributeModifiers");
+        stack.getTagCompound().removeTag("display");
+        addPrefix(player, stack, type, prefixNameMap, modifierMap, modifierNameMap, slot);
+        
     }
 
     private static void handleAdvancement(EntityPlayer player, String prefix) {
