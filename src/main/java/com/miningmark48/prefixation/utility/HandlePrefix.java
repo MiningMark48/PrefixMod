@@ -37,7 +37,7 @@ public class HandlePrefix {
         stack.getTagCompound().setString("prefix", prefixName);
         stack.getTagCompound().setString("type", type.toString());
 
-        handleAdvancement(player, prefixName);
+        if (!player.getEntityWorld().isRemote) handleAdvancement(player, prefixName);
     }
 
     public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, HashMap<Integer, Enum> prefixNameMap, HashMap<Integer, AttributeModifier[]> modifierMap, HashMap<Integer, String[]> modifierNameMap){

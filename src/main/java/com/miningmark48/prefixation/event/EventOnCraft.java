@@ -16,23 +16,20 @@ public class EventOnCraft {
 
     @SubscribeEvent
     public void onCraft(PlayerEvent.ItemCraftedEvent event) {
-        if (!event.player.getEntityWorld().isRemote) {
-            ItemStack stack = event.crafting;
-            Item item = stack.getItem();
+        ItemStack stack = event.crafting;
+        Item item = stack.getItem();
 
-            try {
-                if (item instanceof ItemSword || item instanceof ItemAxe) {
-                    HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
-                } else if (item instanceof ItemArmor) {
-                    if (((ItemArmor) item).armorType == EntityEquipmentSlot.CHEST) {
-                        HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
-                    }
+        try {
+            if (item instanceof ItemSword || item instanceof ItemAxe) {
+                HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixNameMap, WeaponPrefixesHandler.modifierMap, WeaponPrefixesHandler.modifierNameMap);
+            } else if (item instanceof ItemArmor) {
+                if (((ItemArmor) item).armorType == EntityEquipmentSlot.CHEST) {
+                    HandlePrefix.addPrefix(event.player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.prefixNameMap, ArmorPrefixesHandler.modifierMap, ArmorPrefixesHandler.modifierNameMap, EntityEquipmentSlot.CHEST);
                 }
-            } catch (NullPointerException | ConcurrentModificationException e) {
-                ModLogger.fatal("Error occurred while adding prefix to item, please report to mod author.");
-                e.printStackTrace();
             }
-
+        } catch (NullPointerException | ConcurrentModificationException e) {
+            ModLogger.fatal("Error occurred while adding prefix to item, please report to mod author.");
+            e.printStackTrace();
         }
     }
 
