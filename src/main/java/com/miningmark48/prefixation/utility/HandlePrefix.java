@@ -1,5 +1,7 @@
 package com.miningmark48.prefixation.utility;
 
+import com.google.common.collect.Multimap;
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -27,9 +29,13 @@ public class HandlePrefix {
         String prefixName = StringUtils.capitalize(prefix.toString().toLowerCase());
         stack.setStackDisplayName(prefixName + " " + stack.getDisplayName());
 
+        Multimap<String, AttributeModifier> priorAttributes = stack.getAttributeModifiers(slot);
+
         for (int i = 0; i <= modifierMap.get(r).length - 1; i++) {
-            stack.addAttributeModifier(modifierNameMap.get(r)[i],modifierMap.get(r)[i], slot);
+            stack.addAttributeModifier(modifierNameMap.get(r)[i], modifierMap.get(r)[i], slot);
         }
+
+        priorAttributes.forEach((name, attribute) -> stack.addAttributeModifier(name, attribute, slot));
 
         if (stack.getTagCompound() == null) {
             stack.setTagCompound(new NBTTagCompound());
