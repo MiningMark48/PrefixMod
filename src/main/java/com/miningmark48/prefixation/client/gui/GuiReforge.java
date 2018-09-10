@@ -1,13 +1,18 @@
 package com.miningmark48.prefixation.client.gui;
 
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.container.ContainerReforge;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.ModNetworking;
 import com.miningmark48.prefixation.init.ModTriggers;
+import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
+import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.network.messages.MessageReforge;
+import com.miningmark48.prefixation.reference.EnumPrefixTypes;
 import com.miningmark48.prefixation.reference.Reference;
 import com.miningmark48.prefixation.tile.TileEntityReforge;
+import com.miningmark48.prefixation.utility.Colors;
 import com.miningmark48.prefixation.utility.GuiUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -15,6 +20,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.opengl.GL11;
@@ -83,19 +89,43 @@ public class GuiReforge extends GuiContainer {
         int x = GuiUtils.getXCenter(s, this.fontRenderer, xSize);
         this.fontRenderer.drawString(s, x, 5, 0x404040);
 
-        renderTooltips(mouseX, mouseY);
+        ItemStack stack = this.te.getStackInSlot(0);
+        if (!stack.isEmpty() && stack.hasTagCompound()){
+            String prefix = stack.getTagCompound().getString("prefix");
 
-        if (!this.player.isCreative()) {
-            int color = 0xCC0000;
-            if (canReforge()) {
-                color = 0x078007;
+            int color;
+            switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
+                case WEAPON:
+                    TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                    color = Colors.getHexidecimal(colorWeapon.getColorIndex());
+                    break;
+                case ARMOR:
+                    TextFormatting colorTool = ArmorPrefixesHandler.colorMap.get(ArmorPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                    color = Colors.getHexidecimal(colorTool.getColorIndex());
+                    break;
+                default:
+                    color = 0x404040;
+                    break;
             }
 
-            String xpText = String.format(ModTranslate.toLocal("gui.reforge.xp_cost"), xpAmount);
-            int x2 = GuiUtils.getXCenter(xpText, this.fontRenderer, xSize);
-            this.fontRenderer.drawString(xpText, x2 + 1, 43, 0x404040);
-            this.fontRenderer.drawString(xpText, x2, 42, color);
+            //this.fontRenderer.drawString(prefix, GuiUtils.getXCenter(prefix, this.fontRenderer, 85),  25, color);
+            this.fontRenderer.drawString(prefix, GuiUtils.getXCenter(prefix, this.fontRenderer, xSize),  42, color);
+
         }
+
+        renderTooltips(mouseX, mouseY);
+
+//        if (!this.player.isCreative()) {
+//            int color = 0xCC0000;
+//            if (canReforge()) {
+//                color = 0x078007;
+//            }
+//
+//            String xpText = String.format(ModTranslate.toLocal("gui.reforge.xp_cost"), xpAmount);
+//            int x2 = GuiUtils.getXCenter(xpText, this.fontRenderer, xSize);
+//            this.fontRenderer.drawString(xpText, x2 + 1, 43, 0x404040);
+//            this.fontRenderer.drawString(xpText, x2, 42, color);
+//        }
 
         if (canReforge()) {
             buttonReforge.enabled = true;
@@ -113,6 +143,7 @@ public class GuiReforge extends GuiContainer {
     }
 
     private void renderTooltips(int mouseX, int mouseY){
+        //ModLogger.info("X: " + (mouseX - getGuiLeft()) + " Y: " + (mouseY - getGuiTop()));
         if (this.isMouseOver(mouseX, mouseY, 150, 6, 165, 21)) {
             List<String> text = new ArrayList<String>();
             text.add(TextFormatting.BOLD + "" + TextFormatting.UNDERLINE + ModTranslate.toLocal("tooltip.gui.reforge.info.header"));
@@ -121,6 +152,18 @@ public class GuiReforge extends GuiContainer {
             if (!this.player.isCreative()) {
                 text.add("");
                 text.add(String.format(ModTranslate.toLocal("tooltip.gui.reforge.info.line3"), xpAmount, xpAmount == 1 ? "" : "s"));
+            }
+            net.minecraftforge.fml.client.config.GuiUtils.drawHoveringText(text, mouseX - ((this.width - this.xSize) / 2), mouseY - ((this.height - this.ySize) / 2), mc.displayWidth, mc.displayHeight, -1, mc.fontRenderer);
+        } else if (this.isMouseOver(mouseX, mouseY, 58, 54, 118, 71)) {
+            List<String> text = new ArrayList<String>();
+            int color = TextFormatting.RED.getColorIndex();
+            if (canReforge()) {
+                color = TextFormatting.GREEN.getColorIndex();
+            }
+            if (!this.player.isCreative()) {
+                text.add(TextFormatting.fromColorIndex(color) + String.format(ModTranslate.toLocal("gui.reforge.xp_cost"), xpAmount));
+            } else {
+                return;
             }
             net.minecraftforge.fml.client.config.GuiUtils.drawHoveringText(text, mouseX - ((this.width - this.xSize) / 2), mouseY - ((this.height - this.ySize) / 2), mc.displayWidth, mc.displayHeight, -1, mc.fontRenderer);
         }
