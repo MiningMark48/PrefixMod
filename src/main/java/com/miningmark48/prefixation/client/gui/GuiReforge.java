@@ -1,11 +1,9 @@
 package com.miningmark48.prefixation.client.gui;
 
-import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.container.ContainerReforge;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.ModNetworking;
-import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.network.messages.MessageReforge;
@@ -114,18 +112,6 @@ public class GuiReforge extends GuiContainer {
         }
 
         renderTooltips(mouseX, mouseY);
-
-//        if (!this.player.isCreative()) {
-//            int color = 0xCC0000;
-//            if (canReforge()) {
-//                color = 0x078007;
-//            }
-//
-//            String xpText = String.format(ModTranslate.toLocal("gui.reforge.xp_cost"), xpAmount);
-//            int x2 = GuiUtils.getXCenter(xpText, this.fontRenderer, xSize);
-//            this.fontRenderer.drawString(xpText, x2 + 1, 43, 0x404040);
-//            this.fontRenderer.drawString(xpText, x2, 42, color);
-//        }
 
         if (canReforge()) {
             buttonReforge.enabled = true;
