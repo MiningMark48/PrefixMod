@@ -1,6 +1,20 @@
 #Blocks
 tile.reforge.name=Tinkerer's Workstation
 
+#Prefixes
+prefix.legendary.name=Legendary
+prefix.godly.name=Godly
+prefix.quick.name=Quick
+prefix.deadly.name=Deadly
+prefix.frenzying.name=Frenzying
+prefix.annoying.name=Annoying
+prefix.sluggish.name=Sluggish
+prefix.lucky.name=Lucky
+prefix.fortified.name=Fortified
+prefix.durable.name=Durable
+prefix.heavy.name=Heavy
+prefix.light.name=Light
+
 #Configs
 config.reforge_enabled.title=Tinkerer's Workstation Enabled
 config.reforge_enabled.desc=Should the Tinkerer's Workstation be enabled for reforging items?
@@ -11,7 +25,7 @@ config.reforge_experience_use_amount.desc=Amount of XP needed to reforge the pla
 advancements.main.get_reforge.title=Goblin in a box!
 advancements.main.get_reforge.desc=Make a Tinkerer's Workstation to reforge your items!
 
-	#Prefixes
+#Advancment Prefixes
 advancements.prefix.prefix_legendary.title=Legendary!
 advancements.prefix.prefix_legendary.desc=That's legen... dary!
 advancements.prefix.prefix_godly.title=Godly!

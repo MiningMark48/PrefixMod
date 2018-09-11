@@ -89,7 +89,8 @@ public class GuiReforge extends GuiContainer {
 
         ItemStack stack = this.te.getStackInSlot(0);
         if (!stack.isEmpty() && stack.hasTagCompound()){
-            String prefix = stack.getTagCompound().getString("prefix");
+            String prefix = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
+//            String prefix = stack.getTagCompound().getString("prefix");
 
             int color;
             switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {

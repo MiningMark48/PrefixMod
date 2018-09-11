@@ -2,6 +2,7 @@ package com.miningmark48.prefixation.utility;
 
 import com.google.common.collect.Multimap;
 import com.miningmark48.mininglib.utility.ModLogger;
+import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -27,7 +28,8 @@ public class HandlePrefix {
         Enum prefix = prefixNameMap.get(r);
 
         String prefixName = StringUtils.capitalize(prefix.toString().toLowerCase());
-        stack.setStackDisplayName(prefixName + " " + stack.getDisplayName());
+        String displayName = ModTranslate.toLocal(String.format("prefix.%s.name", prefix.toString().toLowerCase()));
+        stack.setStackDisplayName(displayName + " " + stack.getDisplayName());
 
         Multimap<String, AttributeModifier> priorAttributes = stack.getAttributeModifiers(slot);
 

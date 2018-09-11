@@ -1,6 +1,7 @@
 package com.miningmark48.prefixation.event;
 
 import com.miningmark48.mininglib.utility.ModLogger;
+import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.init.prefixes.ArmorPrefixesHandler;
 import com.miningmark48.prefixation.init.prefixes.WeaponPrefixesHandler;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
@@ -24,11 +25,13 @@ public class EventTooltip {
                     switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                         case WEAPON:
                             TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
-                            event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + stack.getTagCompound().getString("prefix"));
+                            String tooltipWeapon = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
+                            event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + tooltipWeapon);
                             break;
                         case ARMOR:
                             TextFormatting colorTool = ArmorPrefixesHandler.colorMap.get(ArmorPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
-                            event.getToolTip().add(1, (colorTool == null ? defaultColor : colorTool) + stack.getTagCompound().getString("prefix"));
+                            String tooltipTool = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
+                            event.getToolTip().add(1, (colorTool == null ? defaultColor : colorTool) + tooltipTool);
                             break;
                         default:
                             ModLogger.error("Modifier tooltip could not be loaded! Please report to mod author. | ERROR CODE 1");
