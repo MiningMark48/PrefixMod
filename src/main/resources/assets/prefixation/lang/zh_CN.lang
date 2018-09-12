@@ -1,8 +1,22 @@
 #Blocks
 tile.reforge.name=锻造台
 
+#Prefixes
+prefix.legendary.name=传奇
+prefix.godly.name=敬神
+prefix.quick.name=迅捷
+prefix.deadly.name=致命
+prefix.frenzying.name=狂暴
+prefix.annoying.name=恼人
+prefix.sluggish.name=怠惰
+prefix.lucky.name=幸运
+prefix.fortified.name=强化
+prefix.durable.name=耐久
+prefix.heavy.name=沉重
+prefix.light.name=轻巧
+
 #Configs
-config.reforge_enabled.title=启用锻造台 
+config.reforge_enabled.title=启用锻造台
 config.reforge_enabled.desc=是否启用锻造台来重铸装备?
 config.reforge_experience_use_amount.title=锻造台经验消耗
 config.reforge_experience_use_amount.desc=重铸装备所需的经验数量
@@ -20,7 +34,7 @@ advancements.prefix.prefix_quick.title=迅捷!
 advancements.prefix.prefix_quick.desc=他一闪而过!
 advancements.prefix.prefix_deadly.title=致命!
 advancements.prefix.prefix_deadly.desc=你必死无疑.
-advancements.prefix.prefix_frenzying.title=狂乱!
+advancements.prefix.prefix_frenzying.title=狂暴!
 advancements.prefix.prefix_frenzying.desc=像鲨鱼一样.
 advancements.prefix.prefix_annoying.title=恼人!
 advancements.prefix.prefix_annoying.desc=跟你的弟弟一样烦人.
@@ -42,5 +56,5 @@ gui.reforge.xp_cost=经验消耗: %s级
 gui.reforge.button.reforge=重铸
 tooltip.gui.reforge.info.header=提示
 tooltip.gui.reforge.info.line1=将装备放入槽位并
-tooltip.gui.reforge.info.line2=单击"重铸"来获得新前缀.
-tooltip.gui.reforge.info.line3=需要 %s 级%s 经验.
+tooltip.gui.reforge.info.line2=单击"重铸"来获得新属性.
+tooltip.gui.reforge.info.line3=需要经验: %s级
