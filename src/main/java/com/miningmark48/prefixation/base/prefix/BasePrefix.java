@@ -5,58 +5,58 @@ import net.minecraft.util.text.TextFormatting;
 
 public abstract class BasePrefix implements IPrefix {
 
-    private static String prefix_name;
-    private static float chance;
-    private static TextFormatting color = TextFormatting.AQUA;
-    private static AttributeModifier[] modifiers;
-    private static String[] modifier_names;
+    private String prefix_name;
+    private float chance;
+    private TextFormatting color = TextFormatting.AQUA;
+    private AttributeModifier[] modifiers;
+    private String[] modifier_names;
 
     @Override
     public void setPrefixName(String name) {
-        BasePrefix.prefix_name = name.toLowerCase();
+        prefix_name = name.toLowerCase();
     }
 
     @Override
     public void setChance(float chance) {
-        BasePrefix.chance = chance;
-        if (BasePrefix.chance > 1f) {
-            BasePrefix.chance = 1f;
+        this.chance = chance;
+        if (chance > 1f) {
+            this.chance = 1f;
         }
     }
 
     @Override
     public void setColor(TextFormatting color) {
-        BasePrefix.color = color;
+        this.color = color;
     }
 
     @Override
     public void setModifiers(AttributeModifier[] modifiers, String[] names) {
-        BasePrefix.modifiers = modifiers;
-        BasePrefix.modifier_names = names;
+        this.modifiers = modifiers;
+        this.modifier_names = names;
     }
 
     @Override
     public String getPrefixName() {
-        return prefix_name;
+        return this.prefix_name;
     }
 
     @Override
     public float getChance() {
-        return chance;
+        return this.chance;
     }
 
     @Override
     public TextFormatting getColor() {
-        return color;
+        return this.color;
     }
 
     @Override
     public AttributeModifier[] getModifiers() {
-        return modifiers;
+        return this.modifiers;
     }
 
     @Override
     public String[] getModifierNames() {
-        return modifier_names;
+        return this.modifier_names;
     }
 }

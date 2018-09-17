@@ -6,17 +6,17 @@ import com.miningmark48.prefixation.reference.EnumAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.util.text.TextFormatting;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ArmorPrefixesHandler {
 
-    public static HashMap<Integer, BasePrefix> prefixes = new HashMap<>();
+    public static ArrayList<BasePrefix> armor_prefixes = new ArrayList<>();
 
     public static void init() {
-        prefixes.clear();
-        int i = 0;
+        armor_prefixes.clear();
 
-        registerPrefix(i, new Prefix("legendary", 0.1f, TextFormatting.GOLD, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ARMOR.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.MAX_HEALTH.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 4, 0)},  new String[]{EnumAttributes.ARMOR.getUnlocalized(), EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.MAX_HEALTH.getUnlocalized(), EnumAttributes.ATTACK_DAMAGE.getUnlocalized()}));
+        registerPrefix(new Prefix("legendary", 0.1f, TextFormatting.GOLD, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ARMOR.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.MAX_HEALTH.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 4, 0)},  new String[]{EnumAttributes.ARMOR.getUnlocalized(), EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.MAX_HEALTH.getUnlocalized(), EnumAttributes.ATTACK_DAMAGE.getUnlocalized()}));
 
 //        addToMaps(i, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ARMOR.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.MAX_HEALTH.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 4, 0)}, new String[]{EnumAttributes.ARMOR.getUnlocalized(), EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.MAX_HEALTH.getUnlocalized(), EnumAttributes.ATTACK_DAMAGE.getUnlocalized()});
 //        addToMaps(i++, Prefixes.GODLY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), 4, 0), new AttributeModifier(EnumAttributes.MAX_HEALTH.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 2, 0)}, new String[]{EnumAttributes.ARMOR_TOUGHNESS.getUnlocalized(), EnumAttributes.MAX_HEALTH.getUnlocalized(), EnumAttributes.ATTACK_DAMAGE.getUnlocalized()});
@@ -36,8 +36,8 @@ public class ArmorPrefixesHandler {
 //        addPrefixColor(Prefixes.LUCKY, TextFormatting.DARK_GREEN);
     }
 
-    private static void registerPrefix(int index, BasePrefix prefix) {
-        prefixes.put(index, prefix);
+    private static void registerPrefix(BasePrefix prefix) {
+        armor_prefixes.add(prefix);
     }
 
 }

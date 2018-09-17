@@ -1,5 +1,6 @@
 package com.miningmark48.prefixation.client.gui;
 
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.container.ContainerReforge;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
@@ -19,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.opengl.GL11;
@@ -90,21 +92,28 @@ public class GuiReforge extends GuiContainer {
         ItemStack stack = this.te.getStackInSlot(0);
         if (!stack.isEmpty() && stack.hasTagCompound()){
             String prefix = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
-//            String prefix = stack.getTagCompound().getString("prefix");
 
-            int color;
-            switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
-                case WEAPON:
-                    TextFormatting colorWeapon = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
-                    color = Colors.getHexidecimal(colorWeapon.getColorIndex());
-                    break;
-                case ARMOR:
-                    TextFormatting colorArmor = ArmorPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
-                    color = Colors.getHexidecimal(colorArmor.getColorIndex());
-                    break;
-                default:
-                    color = 0x404040;
-                    break;
+            int color = 0x404040;
+            if (!stack.hasTagCompound()) {
+                stack.setTagCompound(new NBTTagCompound());
+            }
+
+            try {
+                assert stack.getTagCompound() != null;
+                switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
+                    case WEAPON:
+                        TextFormatting colorWeapon = WeaponPrefixesHandler.weapon_prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
+                        color = Colors.getHexidecimal(colorWeapon.getColorIndex());
+                        break;
+                    case ARMOR:
+                        TextFormatting colorArmor = ArmorPrefixesHandler.armor_prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
+                        color = Colors.getHexidecimal(colorArmor.getColorIndex());
+                        break;
+                    default:
+                        break;
+                }
+            } catch (IllegalArgumentException e) {
+                color = 0x404040;
             }
 
             //this.fontRenderer.drawString(prefix, GuiUtils.getXCenter(prefix, this.fontRenderer, 85),  25, color);

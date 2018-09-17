@@ -45,9 +45,6 @@ public class Prefixation {
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
-        WeaponPrefixesHandler.init();
-        ArmorPrefixesHandler.init();
-
         ModNetworking.init();
 
         MinecraftForge.EVENT_BUS.register(new EventOnCraft());
@@ -59,6 +56,11 @@ public class Prefixation {
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
         proxy.registerRenders();
+
+        WeaponPrefixesHandler.weapon_prefixes.clear();
+        ArmorPrefixesHandler.armor_prefixes.clear();
+        WeaponPrefixesHandler.init();
+        ArmorPrefixesHandler.init();
     }
 
     @Mod.EventHandler

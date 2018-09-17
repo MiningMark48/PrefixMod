@@ -24,12 +24,12 @@ public class EventTooltip {
                 try {
                     switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                         case WEAPON:
-                            TextFormatting colorWeapon = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
+                            TextFormatting colorWeapon = WeaponPrefixesHandler.weapon_prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
                             String tooltipWeapon = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
                             event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + tooltipWeapon);
                             break;
                         case ARMOR:
-                            TextFormatting colorArmor = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
+                            TextFormatting colorArmor = ArmorPrefixesHandler.armor_prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
                             String tooltipTool = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
                             event.getToolTip().add(1, (colorArmor == null ? defaultColor : colorArmor) + tooltipTool);
                             break;

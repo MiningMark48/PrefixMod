@@ -53,10 +53,10 @@ public class CommandReforge extends CommandBase {
             ItemStack heldItem = player.getHeldItem(EnumHand.MAIN_HAND);
             if (!heldItem.isEmpty() && args.length >= 1) {
                 if (args[0].equalsIgnoreCase("weapon")) {
-                    HandlePrefix.reforgePrefix(player, heldItem, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.prefixes);
+                    HandlePrefix.reforgePrefix(player, heldItem, EnumPrefixTypes.WEAPON, WeaponPrefixesHandler.weapon_prefixes);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
                 } else if (args[0].equalsIgnoreCase("armor")) {
-                    HandlePrefix.reforgePrefix(player, heldItem, EnumPrefixTypes.ARMOR, EntityEquipmentSlot.CHEST, ArmorPrefixesHandler.prefixes);
+                    HandlePrefix.reforgePrefix(player, heldItem, EnumPrefixTypes.ARMOR, EntityEquipmentSlot.CHEST, ArmorPrefixesHandler.armor_prefixes);
                     sender.sendMessage(new TextComponentString(TextFormatting.GREEN + "Reforged!"));
                 } else {
                     player.sendMessage(new TextComponentString(TextFormatting.RED + "Error: Invalid args"));

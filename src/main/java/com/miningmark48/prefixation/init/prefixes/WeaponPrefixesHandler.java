@@ -1,5 +1,6 @@
 package com.miningmark48.prefixation.init.prefixes;
 
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.prefixation.base.prefix.BasePrefix;
 import com.miningmark48.prefixation.base.prefix.Prefix;
 import com.miningmark48.prefixation.reference.EnumAttributes;
@@ -7,18 +8,19 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.util.text.TextFormatting;
 import scala.Int;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WeaponPrefixesHandler {
 
-    public static HashMap<Integer, BasePrefix> prefixes = new HashMap<>();
+    public static ArrayList<BasePrefix> weapon_prefixes = new ArrayList<>();
 
     public static void init() {
-        prefixes.clear();
-        int i = 0;
+        weapon_prefixes.clear();
 
-        registerPrefix(i, new Prefix("legendary", 0.1f, TextFormatting.GOLD, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 15, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 5, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()}));
-        registerPrefix(i++, new Prefix("godly", 0.1f, TextFormatting.YELLOW, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 15, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 5, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()}));
+        registerPrefix(new Prefix("legendary", 0.1f, TextFormatting.GOLD, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 15, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 5, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()}));
+        registerPrefix(new Prefix("godly", 0.5f, TextFormatting.YELLOW, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 15, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 5, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()}));
+        registerPrefix(new Prefix("quick", 0.8f, TextFormatting.GREEN, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 8, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.LUCK.getUnlocalized()}));
 
 //        addToMaps(i, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 15, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 5, 0), new AttributeModifier(EnumAttributes.MOVEMENT_SPEED.getUnlocalized(), 0.3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.MOVEMENT_SPEED.getUnlocalized()});
 //        addToMaps(i++, Prefixes.LEGENDARY, new AttributeModifier[]{new AttributeModifier(EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), 20, 0), new AttributeModifier(EnumAttributes.ATTACK_SPEED.getUnlocalized(), 2, 0), new AttributeModifier(EnumAttributes.LUCK.getUnlocalized(), 3, 0)}, new String[]{EnumAttributes.ATTACK_DAMAGE.getUnlocalized(), EnumAttributes.ATTACK_SPEED.getUnlocalized(), EnumAttributes.LUCK.getUnlocalized()});
@@ -49,8 +51,9 @@ public class WeaponPrefixesHandler {
 //        addPrefixColor(Prefixes.FORTIFIED, TextFormatting.DARK_BLUE);
     }
 
-    private static void registerPrefix(int index, BasePrefix prefix) {
-        prefixes.put(index, prefix);
+    private static void registerPrefix(BasePrefix prefix) {
+        weapon_prefixes.add(prefix);
+        ModLogger.info("Registered " + prefix.getPrefixName() + " at " + weapon_prefixes.indexOf(prefix));
     }
 
 }
