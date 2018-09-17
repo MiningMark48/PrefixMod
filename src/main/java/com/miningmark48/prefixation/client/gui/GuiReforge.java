@@ -95,12 +95,12 @@ public class GuiReforge extends GuiContainer {
             int color;
             switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                 case WEAPON:
-                    TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                    TextFormatting colorWeapon = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
                     color = Colors.getHexidecimal(colorWeapon.getColorIndex());
                     break;
                 case ARMOR:
-                    TextFormatting colorTool = ArmorPrefixesHandler.colorMap.get(ArmorPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
-                    color = Colors.getHexidecimal(colorTool.getColorIndex());
+                    TextFormatting colorArmor = ArmorPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
+                    color = Colors.getHexidecimal(colorArmor.getColorIndex());
                     break;
                 default:
                     color = 0x404040;

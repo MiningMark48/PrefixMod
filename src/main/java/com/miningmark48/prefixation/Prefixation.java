@@ -1,6 +1,7 @@
 package com.miningmark48.prefixation;
 
 import com.miningmark48.prefixation.commands.CommandReforge;
+import com.miningmark48.prefixation.commands.CommandRefreshPrefixes;
 import com.miningmark48.prefixation.event.EventOnCraft;
 import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.*;
@@ -67,7 +68,7 @@ public class Prefixation {
 
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
-        //event.registerServerCommand(new CommandRefreshPrefixes());
+        event.registerServerCommand(new CommandRefreshPrefixes());
         event.registerServerCommand(new CommandReforge());
     }
 

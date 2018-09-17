@@ -24,14 +24,14 @@ public class EventTooltip {
                 try {
                     switch (EnumPrefixTypes.valueOf(stack.getTagCompound().getString("type"))) {
                         case WEAPON:
-                            TextFormatting colorWeapon = WeaponPrefixesHandler.colorMap.get(WeaponPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                            TextFormatting colorWeapon = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
                             String tooltipWeapon = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
                             event.getToolTip().add(1, (colorWeapon == null ? defaultColor : colorWeapon) + tooltipWeapon);
                             break;
                         case ARMOR:
-                            TextFormatting colorTool = ArmorPrefixesHandler.colorMap.get(ArmorPrefixesHandler.Prefixes.valueOf(stack.getTagCompound().getString("prefix").toUpperCase()));
+                            TextFormatting colorArmor = WeaponPrefixesHandler.prefixes.get(stack.getTagCompound().getInteger("prefix_index")).getColor();
                             String tooltipTool = ModTranslate.toLocal(String.format("prefix.%s.name", stack.getTagCompound().getString("prefix")).toLowerCase());
-                            event.getToolTip().add(1, (colorTool == null ? defaultColor : colorTool) + tooltipTool);
+                            event.getToolTip().add(1, (colorArmor == null ? defaultColor : colorArmor) + tooltipTool);
                             break;
                         default:
                             ModLogger.error("Modifier tooltip could not be loaded! Please report to mod author. | ERROR CODE 1");
