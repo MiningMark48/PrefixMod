@@ -12,12 +12,14 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ReportedException;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.commons.lang3.StringUtils;
 import scala.Array;
 import scala.Int;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -31,7 +33,6 @@ public class HandlePrefix {
 
     public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, EntityEquipmentSlot slot, ArrayList<BasePrefix> prefix_map) {
         Random rand = new Random();
-        int r = rand.nextInt(prefix_map.size());
         BasePrefix prefix = getPrefix(rand, 0, prefix_map);
 
         String prefixName = StringUtils.capitalize(prefix.getPrefixName());
@@ -71,29 +72,20 @@ public class HandlePrefix {
     }
 
     private static BasePrefix getPrefix(Random rand, int index, ArrayList<BasePrefix> prefix_map) {
-        BasePrefix prefix = prefix_map.get(index);
-
-        //Prefix Chance
-        int prefix_chance = calculateChance(prefix.getChance());
-        ModLogger.info("Prefix: " + prefix.getPrefixName());
-        ModLogger.info("Chance: " + prefix_chance);
-
-        int randNum;
-        if (prefix_chance != 0) {
-            randNum = rand.nextInt(1);
-        } else {
-            randNum = 1;
+        try {
+            BasePrefix prefix = prefix_map.get(index);
+            int prefix_chance = calculateChance(prefix.getChance());
+            int randNum = 1;
+            if (prefix_chance != 0) {
+                randNum = rand.nextInt(100);
+            }
+            if ((randNum > (prefix_chance)) && index < prefix_map.size() - 1) {
+                return getPrefix(rand, index + 1, prefix_map);
+            }
+            return prefix;
+        } catch (ConcurrentModificationException | ReportedException e) {
+            return prefix_map.get(0);
         }
-        ModLogger.info("Rand Num: " + randNum + ( prefix_chance != 0 ? (" " + (100 / prefix_chance)) : " NONE"));
-        ModLogger.info("Index: " + index);
-        ModLogger.info("=-----------------=");
-
-        if ((prefix_chance == 0 || randNum <= (100 / prefix_chance)) && index < prefix_map.size() - 1) {
-            return getPrefix(rand, index + 1, prefix_map);
-        }
-
-        ModLogger.info("Success! " + prefix.getPrefixName());
-        return prefix;
     }
 
     private static int calculateChance(float prefix_chance) {
