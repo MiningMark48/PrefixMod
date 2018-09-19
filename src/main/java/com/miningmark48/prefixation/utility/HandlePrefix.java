@@ -23,8 +23,6 @@ import java.util.*;
 
 public class HandlePrefix {
 
-    private static int chance_counter = 0;
-
     public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, ArrayList<BasePrefix> prefix_map){
         addPrefix(player, stack, type, EntityEquipmentSlot.MAINHAND, prefix_map);
     }
