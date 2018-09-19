@@ -1,5 +1,6 @@
 package com.miningmark48.prefixation.utility;
 
+import com.google.common.collect.Iterators;
 import com.google.common.collect.Multimap;
 import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
@@ -18,10 +19,7 @@ import org.apache.commons.lang3.StringUtils;
 import scala.Array;
 import scala.Int;
 
-import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class HandlePrefix {
 
@@ -71,20 +69,49 @@ public class HandlePrefix {
         addPrefix(player, stack, type, slot, prefix_map);
     }
 
+    @SuppressWarnings("Duplicates")
     private static BasePrefix getPrefix(Random rand, int index, ArrayList<BasePrefix> prefix_map) {
         try {
-            BasePrefix prefix = prefix_map.get(index);
-            int prefix_chance = calculateChance(prefix.getChance());
+            int start = rand.nextInt(prefix_map.size());
+            BasePrefix prefix;
+            int prefix_chance;
             int randNum = 1;
-            if (prefix_chance != 0) {
-                randNum = rand.nextInt(100);
+
+            ListIterator i = prefix_map.listIterator(start);
+
+            if (i.hasNext()) i.next();
+            while (i.hasNext()) {
+                prefix = (BasePrefix) i.next();
+                prefix_chance = calculateChance(prefix.getChance());
+
+                if (prefix_chance != 0) {
+                    randNum = rand.nextInt(100);
+                }
+
+                if ((randNum > (prefix_chance))) {
+                    return prefix;
+                }
             }
-            if ((randNum > (prefix_chance)) && index < prefix_map.size() - 1) {
-                return getPrefix(rand, index + 1, prefix_map);
+
+            Iterator k = Iterators.limit(prefix_map.iterator(), start + 1);
+
+            while (k.hasNext()) {
+
+                prefix = (BasePrefix) k.next();
+                prefix_chance = calculateChance(prefix.getChance());
+
+                if (prefix_chance != 0) {
+                    randNum = rand.nextInt(100);
+                }
+
+                if ((randNum > (prefix_chance))) {
+                    return prefix;
+                }
             }
-            return prefix;
+
+            return prefix_map.get(rand.nextInt(prefix_map.size()));
         } catch (ConcurrentModificationException | ReportedException e) {
-            return prefix_map.get(0);
+            return prefix_map.get(rand.nextInt(prefix_map.size()));
         }
     }
 
