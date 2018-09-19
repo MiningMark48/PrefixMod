@@ -29,7 +29,7 @@ public class HandlePrefix {
 
     public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, EntityEquipmentSlot slot, ArrayList<BasePrefix> prefix_map) {
         Random rand = new Random();
-        BasePrefix prefix = getPrefix(rand, 0, prefix_map);
+        BasePrefix prefix = getPrefix(rand, prefix_map);
 
         String prefixName = StringUtils.capitalize(prefix.getPrefixName());
 
@@ -68,45 +68,35 @@ public class HandlePrefix {
     }
 
     @SuppressWarnings("Duplicates")
-    private static BasePrefix getPrefix(Random rand, int index, ArrayList<BasePrefix> prefix_map) {
+    private static BasePrefix getPrefix(Random rand, ArrayList<BasePrefix> prefix_map) {
         try {
             int start = rand.nextInt(prefix_map.size());
             BasePrefix prefix;
             int prefix_chance;
             int randNum = 1;
-
             ListIterator i = prefix_map.listIterator(start);
-
             if (i.hasNext()) i.next();
             while (i.hasNext()) {
                 prefix = (BasePrefix) i.next();
                 prefix_chance = calculateChance(prefix.getChance());
-
                 if (prefix_chance != 0) {
                     randNum = rand.nextInt(100);
                 }
-
                 if ((randNum > (prefix_chance))) {
                     return prefix;
                 }
             }
-
             Iterator k = Iterators.limit(prefix_map.iterator(), start + 1);
-
             while (k.hasNext()) {
-
                 prefix = (BasePrefix) k.next();
                 prefix_chance = calculateChance(prefix.getChance());
-
                 if (prefix_chance != 0) {
                     randNum = rand.nextInt(100);
                 }
-
                 if ((randNum > (prefix_chance))) {
                     return prefix;
                 }
             }
-
             return prefix_map.get(rand.nextInt(prefix_map.size()));
         } catch (ConcurrentModificationException | ReportedException e) {
             return prefix_map.get(rand.nextInt(prefix_map.size()));
