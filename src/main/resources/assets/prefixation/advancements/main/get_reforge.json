@@ -8,7 +8,8 @@
         },
         "description": {
             "translate": "advancements.prefix.main.get_reforge.desc"
-        }
+        },
+        "frame": "goal"
     },
     "parent": "prefixation:main/root",
     "criteria": {
