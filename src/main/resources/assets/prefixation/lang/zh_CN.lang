@@ -2,53 +2,54 @@
 tile.reforge.name=锻造台
 
 #Prefixes
-prefix.legendary.name=传说的
-prefix.godly.name=神圣的
-prefix.quick.name=迅捷的
-prefix.deadly.name=致命的
-prefix.frenzying.name=狂暴的
-prefix.annoying.name=恼人的
-prefix.sluggish.name=怠惰的
-prefix.lucky.name=幸运的
-prefix.fortified.name=强化的
-prefix.durable.name=耐久的
-prefix.heavy.name=沉重的
-prefix.light.name=轻巧的
+prefix.legendary.name=传说
+prefix.godly.name=神圣
+prefix.quick.name=迅捷
+prefix.deadly.name=致命
+prefix.frenzying.name=狂暴
+prefix.annoying.name=恼人
+prefix.sluggish.name=怠惰
+prefix.lucky.name=幸运
+prefix.fortified.name=强化
+prefix.durable.name=耐久
+prefix.heavy.name=沉重
+prefix.light.name=轻巧
 
 #Config Categories
 config.category.chances.weapons.title=武器属性概率
-config.category.chances.weapons.desc=锻造武器时, 每个前缀属性的生成概率(0 = 最低概率[永不生成], 1 = 最高概率[总是生成]).
+config.category.chances.weapons.desc=锻造武器时, 每个前缀属性的生成概率(0 = 最低概率 [永不生成], 1 = 最高概率 [总是生成]).
 config.category.chances.armor.title=护甲属性概率
-config.category.chances.armor.desc=锻造护甲时, 每个前缀属性的生成概率(0 = 最低概率[永不生成], 1 = 最高概率[总是生成]).
+config.category.chances.armor.desc=锻造护甲时, 每个前缀属性的生成概率(0 = 最低概率 [永不生成], 1 = 最高概率 [总是生成]).
 
 #Configs
 config.reforge_enabled.title=启用锻造台
 config.reforge_enabled.desc=是否启用锻造台来重铸装备?
-config.reforge_experience_use_amount.title=锻造台经验消耗
-config.reforge_experience_use_amount.desc=重铸装备所需的经验数量
-config.chances.weapons.desc=前缀属性在武器上生成的可能性.
-config.chances.armor.desc=前缀属性在护甲上生成的可能性.
-config.chances.weapons.fortified.title=武器属性概率: 强化
-config.chances.weapons.lucky.title=武器属性概率: 幸运
-config.chances.weapons.sluggish.title=武器属性概率: 怠惰
-config.chances.weapons.annoying.title=武器属性概率: 恼人
-config.chances.weapons.frenzying.title=武器属性概率: 狂暴
-config.chances.weapons.deadly.title=武器属性概率: 致命
-config.chances.weapons.quick.title=武器属性概率: 迅捷
-config.chances.weapons.godly.title=武器属性概率: 神圣
-config.chances.weapons.legendary.title=武器属性概率: 传说
-config.chances.armor.lucky.title=护甲属性概率: 幸运
-config.chances.armor.quick.title=护甲属性概率: 迅捷
-config.chances.armor.light.title=护甲属性概率: 轻巧
-config.chances.armor.heavy.title=护甲属性概率: 沉重
-config.chances.armor.durable.title=护甲属性概率: 耐久
-config.chances.armor.godly.title=护甲属性概率: 神圣
-config.chances.armor.legendary.title=护甲属性概率: 传说
+config.reforge_experience_use_amount.title=经验消耗(等级)
+config.reforge_experience_use_amount.desc=重铸装备所需经验
+config.chances.weapons.desc=前缀属性在武器上生成的概率.
+config.chances.armor.desc=前缀属性在护甲上生成的概率.
+config.chances.weapons.fortified.title=生成概率: 强化
+config.chances.weapons.lucky.title=生成概率: 幸运
+config.chances.weapons.sluggish.title=生成概率: 怠惰
+config.chances.weapons.annoying.title=生成概率: 恼人
+config.chances.weapons.frenzying.title=生成概率: 狂暴
+config.chances.weapons.deadly.title=生成概率: 致命
+config.chances.weapons.quick.title=生成概率: 迅捷
+config.chances.weapons.godly.title=生成概率: 神圣
+config.chances.weapons.legendary.title=生成概率: 传说
+config.chances.armor.lucky.title=生成概率: 幸运
+config.chances.armor.quick.title=生成概率: 迅捷
+config.chances.armor.light.title=生成概率: 轻巧
+config.chances.armor.heavy.title=生成概率: 沉重
+config.chances.armor.durable.title=生成概率: 耐久
+config.chances.armor.godly.title=生成概率: 神圣
+config.chances.armor.legendary.title=生成概率: 传说
 
 #Advancements
-advancements.main.get_reforge.title=盒子里的妖精!
-advancements.main.get_reforge.desc=制作一个锻造台来锻造你的装备!
-
+advancements.prefix.main.root.title=前缀属性
+advancements.prefix.main.root.desc=前缀!
+advancements.prefix.main.get_reforge.title=盒子里的妖精!
+advancements.prefix.main.get_reforge.desc=制作一个锻造台来锻造你的装备!
 #Prefixes
 advancements.prefix.prefix_legendary.title=传奇!
 advancements.prefix.prefix_legendary.desc=这是...传说中的!
