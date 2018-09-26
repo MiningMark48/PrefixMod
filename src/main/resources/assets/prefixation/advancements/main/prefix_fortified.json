@@ -4,17 +4,18 @@
       "item": "minecraft:diamond_sword"
     },
     "title": {
-      "translate": "advancements.prefix.prefix_legendary.title"
+      "translate": "advancements.prefix.prefix_fortified.title"
     },
     "description": {
-      "translate": "advancements.prefix.prefix_legendary.desc"
+      "translate": "advancements.prefix.prefix_fortified.desc"
     }
   },
+  "parent": "prefixation:main/root",
   "criteria": {
     "prefix": {
       "trigger": "prefixation:prefix",
       "conditions": {
-        "prefix": "legendary"
+        "prefix": "fortified"
       }
     }
   }

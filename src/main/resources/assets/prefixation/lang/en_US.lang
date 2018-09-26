@@ -46,10 +46,11 @@ config.chances.armor.godly.title=Armor Prefix Chance: Godly
 config.chances.armor.legendary.title=Armor Prefix Chance: Legendary
 
 #Advancements
-advancements.main.get_reforge.title=Goblin in a box!
-advancements.main.get_reforge.desc=Make a Tinkerer's Workstation to reforge your items!
-
-#Advancment Prefixes
+advancements.prefix.main.root.title=Prefixation
+advancements.prefix.main.root.desc=Prefixes!
+advancements.prefix.main.get_reforge.title=Goblin in a box!
+advancements.prefix.main.get_reforge.desc=Make a Tinkerer's Workstation to reforge your items!
+	#Prefixes
 advancements.prefix.prefix_legendary.title=Legendary!
 advancements.prefix.prefix_legendary.desc=That's legen... dary!
 advancements.prefix.prefix_godly.title=Godly!

@@ -4,20 +4,22 @@
             "item": "prefixation:reforge"
         },
         "title": {
-            "translate": "advancements.prefix.main.get_reforge.title"
+            "translate": "advancements.prefix.main.root.title"
         },
         "description": {
-            "translate": "advancements.prefix.main.get_reforge.desc"
-        }
+            "translate": "advancements.prefix.main.root.desc"
+        },
+        "background": "prefixation:textures/gui/advancements/backgrounds/prefix.png",
+        "show_toast": false,
+        "announce_to_chat": false
     },
-    "parent": "prefixation:main/root",
     "criteria": {
-        "reforge": {
+        "crafting_table": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "prefixation:reforge"
+                        "item": "minecraft:crafting_table"
                     }
                 ]
             }

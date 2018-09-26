@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:diamond_sword"
+      "item": "minecraft:diamond_chestplate"
     },
     "title": {
       "translate": "advancements.prefix.prefix_light.title"
@@ -10,6 +10,7 @@
       "translate": "advancements.prefix.prefix_light.desc"
     }
   },
+  "parent": "prefixation:main/root",
   "criteria": {
     "prefix": {
       "trigger": "prefixation:prefix",

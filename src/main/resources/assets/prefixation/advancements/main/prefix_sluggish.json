@@ -10,6 +10,7 @@
       "translate": "advancements.prefix.prefix_sluggish.desc"
     }
   },
+  "parent": "prefixation:main/root",
   "criteria": {
     "prefix": {
       "trigger": "prefixation:prefix",

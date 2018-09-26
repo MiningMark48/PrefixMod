@@ -4,17 +4,18 @@
       "item": "minecraft:diamond_sword"
     },
     "title": {
-      "translate": "advancements.prefix.prefix_godly.title"
+      "translate": "advancements.prefix.prefix_lucky.title"
     },
     "description": {
-      "translate": "advancements.prefix.prefix_godly.desc"
+      "translate": "advancements.prefix.prefix_lucky.desc"
     }
   },
+  "parent": "prefixation:main/root",
   "criteria": {
     "prefix": {
       "trigger": "prefixation:prefix",
       "conditions": {
-        "prefix": "godly"
+        "prefix": "lucky"
       }
     }
   }
