@@ -14,6 +14,7 @@ public class ConfigurationHandler {
 
     public static boolean reforge_enabled;
     public static int reforge_experience_use_amount;
+    public static boolean prefix_offhand;
 
     //Prefixes
         //Weapons
@@ -63,6 +64,7 @@ public class ConfigurationHandler {
 
         reforge_enabled = configuration.getBoolean(ModTranslate.toLocal("config.reforge_enabled.title"), Configuration.CATEGORY_GENERAL, true, ModTranslate.toLocal("config.reforge_enabled.desc"));
         reforge_experience_use_amount = configuration.getInt(ModTranslate.toLocal("config.reforge_experience_use_amount.title"), Configuration.CATEGORY_GENERAL, 2, 0, Integer.MAX_VALUE, ModTranslate.toLocal("config.reforge_experience_use_amount.desc"));
+        prefix_offhand = configuration.getBoolean(ModTranslate.toLocal("config.offhand_enabled.title"), Configuration.CATEGORY_GENERAL, true, ModTranslate.toLocal("config.offhand_enabled.desc"));
 
         //Prefixes
             //Weapons

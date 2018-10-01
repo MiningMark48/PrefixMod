@@ -63,7 +63,7 @@ public class MessageReforge implements IMessage, IMessageHandler<MessageReforge,
                     if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                 } else if (stack.getItem() instanceof ItemArmor) {
                     if (((ItemArmor) stack.getItem()).armorType.equals(EntityEquipmentSlot.CHEST)) {
-                        HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.ARMOR, EntityEquipmentSlot.CHEST, ArmorPrefixesHandler.armor_prefixes);
+                        HandlePrefix.reforgePrefix(player, stack, EnumPrefixTypes.ARMOR, ArmorPrefixesHandler.armor_prefixes);
                         if (!player.isCreative()) player.addExperienceLevel(-message.xpAmount);
                     }
                 }

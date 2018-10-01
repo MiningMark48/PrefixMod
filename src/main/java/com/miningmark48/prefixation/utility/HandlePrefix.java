@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import com.miningmark48.prefixation.base.prefix.BasePrefix;
+import com.miningmark48.prefixation.handler.ConfigurationHandler;
 import com.miningmark48.prefixation.init.ModTriggers;
 import com.miningmark48.prefixation.reference.EnumPrefixTypes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -23,22 +24,37 @@ import java.util.*;
 
 public class HandlePrefix {
 
+    @SuppressWarnings("Duplicates")
     public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, ArrayList<BasePrefix> prefix_map){
-        addPrefix(player, stack, type, EntityEquipmentSlot.MAINHAND, prefix_map);
+        ArrayList<EntityEquipmentSlot> slots = new ArrayList<>();
+        switch (type) {
+            default:
+            case WEAPON:
+                slots.add(EntityEquipmentSlot.MAINHAND);
+                if (ConfigurationHandler.prefix_offhand) slots.add(EntityEquipmentSlot.OFFHAND);
+                break;
+            case ARMOR:
+                slots.add(EntityEquipmentSlot.CHEST);
+                if (ConfigurationHandler.prefix_offhand) slots.add(EntityEquipmentSlot.OFFHAND);
+                break;
+        }
+        addPrefix(player, stack, type, slots, prefix_map);
     }
 
-    public static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, EntityEquipmentSlot slot, ArrayList<BasePrefix> prefix_map) {
+    private static void addPrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, ArrayList<EntityEquipmentSlot> slots, ArrayList<BasePrefix> prefix_map) {
         Random rand = new Random();
         BasePrefix prefix = getPrefix(rand, prefix_map);
 
         String prefixName = StringUtils.capitalize(prefix.getPrefixName());
 
-        Multimap<String, AttributeModifier> priorAttributes = new ItemStack(stack.getItem()).getAttributeModifiers(slot);
-        for (int i = 0; i <= prefix.getModifiers().length - 1; i++) {
-            stack.addAttributeModifier(prefix.getModifierNames()[i], prefix.getModifiers()[i], slot);
-        }
+        slots.forEach(slot -> {
+            Multimap<String, AttributeModifier> priorAttributes = new ItemStack(stack.getItem()).getAttributeModifiers(slot);
+            for (int i = 0; i <= prefix.getModifiers().length - 1; i++) {
+                stack.addAttributeModifier(prefix.getModifierNames()[i], prefix.getModifiers()[i], slot);
+            }
 
-        priorAttributes.forEach((name, attribute) -> stack.addAttributeModifier(name, attribute, slot));
+            priorAttributes.forEach((name, attribute) -> stack.addAttributeModifier(name, attribute, slot));
+        });
 
         if (!stack.hasTagCompound()) {
             stack.setTagCompound(new NBTTagCompound());
@@ -51,11 +67,23 @@ public class HandlePrefix {
         if (!player.getEntityWorld().isRemote) handleAdvancement(player, prefixName);
     }
 
+    @SuppressWarnings("Duplicates")
     public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, ArrayList<BasePrefix> prefix_map){
-        reforgePrefix(player, stack, type, EntityEquipmentSlot.MAINHAND, prefix_map);
+        ArrayList<EntityEquipmentSlot> slots = new ArrayList<>();
+        switch (type) {
+            default:
+            case WEAPON:
+                slots.add(EntityEquipmentSlot.MAINHAND);
+                if (ConfigurationHandler.prefix_offhand) slots.add(EntityEquipmentSlot.OFFHAND);
+                break;
+            case ARMOR:
+                if (ConfigurationHandler.prefix_offhand) slots.add(EntityEquipmentSlot.CHEST);
+                break;
+        }
+        reforgePrefix(player, stack, type, slots, prefix_map);
     }
 
-    public static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, EntityEquipmentSlot slot, ArrayList<BasePrefix> prefix_map) {
+    private static void reforgePrefix(EntityPlayer player, ItemStack stack, EnumPrefixTypes type, ArrayList<EntityEquipmentSlot> slots, ArrayList<BasePrefix> prefix_map) {
 
         if (!stack.hasTagCompound()) {
             stack.setTagCompound(new NBTTagCompound());
@@ -64,7 +92,7 @@ public class HandlePrefix {
         assert stack.getTagCompound() != null;
         stack.getTagCompound().removeTag("AttributeModifiers");
 
-        addPrefix(player, stack, type, slot, prefix_map);
+        addPrefix(player, stack, type, slots, prefix_map);
     }
 
     @SuppressWarnings("Duplicates")

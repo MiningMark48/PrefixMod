@@ -25,7 +25,9 @@ config.category.chances.armor.desc=Chances for each prefix for armor (0 = lowest
 config.reforge_enabled.title=Tinkerer's Workstation Enabled
 config.reforge_enabled.desc=Should the Tinkerer's Workstation be enabled for reforging items?
 config.reforge_experience_use_amount.title=Tinkerer's Workstation XP Amount
-config.reforge_experience_use_amount.desc=Amount of XP needed to reforge the player's items
+config.reforge_experience_use_amount.desc=Amount of XP needed to reforge th0e player's items
+config.offhand_enabled.title=Offhand Enabled?
+config.offhand_enabled.desc=When enabled, prefixes will be added to the offhand as well. This means a player can hold two legendary swords and get the effects of both.
 config.chances.weapons.desc=The chance that the prefix has for spawning on the weapon.
 config.chances.armor.desc=The chance that the prefix has for spawning on the armor.
 config.chances.weapons.fortified.title=Weapon Prefix Chance: Fortified
